@@ -1,0 +1,9 @@
+[{
+    "id": "test",
+    "breakpoints": [5, 10, 15, 20]
+
+},
+{
+    "id": "test1",
+    "breakpoints": [10, 45, 120, 300]
+}]
