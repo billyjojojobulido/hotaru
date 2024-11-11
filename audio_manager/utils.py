@@ -28,7 +28,7 @@ def play_audio_segment(audio_media, start=0, end=10):
         return
 
     # 裁剪音频文件
-    segment = audio_media[start:end]
+    segment = audio_media[start*1000:end*1000]
 
     # 播放音频片段
     play(segment)
