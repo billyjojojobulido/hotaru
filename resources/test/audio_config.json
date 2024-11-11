@@ -1,9 +1,11 @@
 [{
     "id": "test",
+    "name": "AUDIO_TEST",
     "breakpoints": [5, 10, 15, 20]
 
 },
 {
     "id": "test1",
+    "name": "AUDIO_TEST1",
     "breakpoints": [10, 45, 120, 300]
 }]
