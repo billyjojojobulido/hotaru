@@ -19,9 +19,14 @@ def fetch_audio_info(id: int) -> AudioInfo:
 
 def get_audio_media(audio_file):
     # 获取音频对象
-    audio = AudioSegment.from_file(audio_file)
-    return audio
-
+    try:
+        audio = AudioSegment.from_file(audio_file)
+        return audio
+    except FileNotFoundError:
+        print("Audio File: {} not found".format(audio_file))
+        return None
+    except Exception as e:
+        print("Error occurs when loading audio media".format(e))
 
 def play_audio_segment(audio_media, start=0, end=10):
     if audio_media is None:
