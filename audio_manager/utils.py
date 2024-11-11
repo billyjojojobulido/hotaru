@@ -3,7 +3,7 @@ from pydub.playback import play
 from resources.audio_info import AudioInfo
 import json
 
-CONFIG_FILE_NAME = "resources/test/audio_config1.json"
+CONFIG_FILE_NAME = "resources/test/audio_config.json"
 
 def fetch_audio_info(id: int) -> AudioInfo:
     # 读取 JSON 文件
