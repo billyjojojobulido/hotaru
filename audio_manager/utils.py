@@ -1,6 +1,6 @@
 from pydub import AudioSegment
 from pydub.playback import play
-from resources.audio_info import AudioInfo
+from classes.audio_info import AudioInfo
 import json
 
 CONFIG_FILE_NAME = "resources/test/audio_config.json"
