@@ -12,7 +12,7 @@ if __name__ == "__main__":
     end_time = 15 * 1000
 
     # 裁剪音频文件
-    segment = audio[start_time:end_time]
+    segment = audio[start_time:]
 
     # 播放音频片段
     play(segment)
