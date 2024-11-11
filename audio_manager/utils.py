@@ -26,7 +26,6 @@ def get_audio_media(audio_file):
 def play_audio_segment(audio_media, start=0, end=10):
     if audio_media is None:
         return
-
     # 裁剪音频文件
     segment = audio_media[start*1000:end*1000]
 
