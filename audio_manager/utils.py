@@ -13,7 +13,7 @@ def fetch_audio_info(id: int) -> AudioInfo:
         # 输出 JSON 数据的内容
         for audio in audio_data:
             if audio["id"] == id:
-                return AudioInfo(id, audio["file_name"], audio["breakpoints"])
+                return AudioInfo(id, audio["file_name"], audio["file_path"], audio["breakpoints"])
     except FileNotFoundError:
         print("Config File: {} not found".format(CONFIG_FILE_NAME))
         return None
