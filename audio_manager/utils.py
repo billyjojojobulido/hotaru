@@ -32,19 +32,33 @@ def get_audio_media(audio_file):
     except Exception as e:
         print("Error occurs when loading audio media".format(e))
 
-def play_audio_segment(audio_media, start, end):
-    print(start, end)
+def get_audio_segment(audio_media, start, end):
     if audio_media is None:
         return
     # 裁剪音频文件
     segment = audio_media[start*1000:end*1000] if end > 0 else audio_media[start*1000:]
 
-    # 播放音频片段
-    play(segment)
+    return segment
 
 
 # 获取最终的循环列表
 def construct_audio_loop(id):
     audio_info = fetch_audio_info(id)
     if audio_info is None:
+        print("No such file, please check.")
         return None
+
+    else:
+        audio_media = get_audio_media(audio_info.file_path)
+        start = 0
+        end = audio_info.breakpoints[0]
+
+        for i in range(len(audio_info.breakpoints)):
+            if i == 0:
+                print("Briefing: from {}s to {}s".format(start, end))
+            else:
+                start = audio.breakpoints[i-1]
+                end = audio.breakpoints[i]
+                print( "Section: {} from {}s to {}s".format(i, start, end))
+
+            play_audio_segment(audio_media, start, end)
