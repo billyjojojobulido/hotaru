@@ -44,4 +44,7 @@ def play_audio_segment(audio_media, start, end):
 
 
 # 获取最终的循环列表
-def construct_audio_loop():
+def construct_audio_loop(id):
+    audio_info = fetch_audio_info(id)
+    if audio_info is None:
+        return None
