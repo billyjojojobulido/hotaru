@@ -70,4 +70,17 @@ def construct_audio_loop(id):
 
     # 成环
     ptr.link(dummy_head.next())
-    return dummy_head.next()
+    return dummy_head
+
+def _test_audio_loop(id):
+    loop_head = construct_audio_loop(id)
+    ptr: AudioSegmentNode = loop_head.next()
+    visited = False
+    while True:
+        if ptr.is_head():
+            if not visited:            
+                visited = True
+            else:
+                break
+        print(ptr._ord)
+        ptr = ptr.next()
