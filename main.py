@@ -19,15 +19,20 @@ if __name__ == "__main__":
         
     else:
         audio_media = get_audio_media(audio.file_path)
-        cnt = 0
         start = 0
         end = audio.breakpoints[0]
-        while True:
-            i = input("Press Enter to play the next one")
-            if cnt > len(audio.breakpoints):
-                break
-            print("Briefing: from {}s to {}s".format(cnt, start, end) if cnt == 0 else "Section: {} from {}s to {}s".format(cnt, start, end))
+
+        for i in range(len(audio.breakpoints)):
+            input("Press <Enter> to play the next audio segment.")
+            if i == 0:
+                start = 0
+                end = audio.breakpoints[0]
+                print("Briefing: from {}s to {}s".format(start, end))
+
+            else:
+                start = audio.breakpoints[i-1]
+                end = audio.breakpoints[i]
+                print( "Section: {} from {}s to {}s".format(i, start, end))
+
             play_audio_segment(audio_media, start, end)
-            cnt += 1
-            start = audio.breakpoints[cnt - 1] if cnt - 1 < len(audio_media) else audio.breakpoints[-1]
-            end = audio.breakpoints[cnt] if cnt < len(audio.breakpoints) else -1
+        
