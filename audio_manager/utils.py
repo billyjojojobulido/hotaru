@@ -34,7 +34,7 @@ def get_audio_media(audio_file):
 
 def get_audio_segment(audio_media, start, end):
     if audio_media is None:
-        return
+        return None 
     # 裁剪音频文件
     segment = audio_media[start*1000:end*1000] if end > 0 else audio_media[start*1000:]
 
@@ -54,11 +54,8 @@ def construct_audio_loop(id):
         end = audio_info.breakpoints[0]
 
         for i in range(len(audio_info.breakpoints)):
-            if i == 0:
-                print("Briefing: from {}s to {}s".format(start, end))
-            else:
-                start = audio.breakpoints[i-1]
-                end = audio.breakpoints[i]
-                print( "Section: {} from {}s to {}s".format(i, start, end))
+            if i > 0:
+                start = audio_info.breakpoints[i-1]
+                end = audio_info.breakpoints[i]
 
-            play_audio_segment(audio_media, start, end)
+            audio_seg = get_audio_segment(audio_media, start, end)
