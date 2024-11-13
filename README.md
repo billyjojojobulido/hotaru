@@ -8,9 +8,13 @@
 
 ## Project Background
 
-Hotaru: Japanese word for firefly, which means that this application is developed based on and so far only compatible with Firefly Education interpretation training sample audio collection.
+Hotaru **ほたる** : Japanese word for firefly, which means that this application is developed based on and so far only compatible with Firefly Education interpretation training sample audio collection.
 
 ## Project Environment
 
 - MacOS
 - Python3
+
+## Terms and Conditions
+
+`Development at this stage does not rely on certificates or other verification methods to restrict users from using the project. As this project does not and will never provide any direct audio materials protected by intellectual property laws. Users should make sure that they have the latest Firefly Education Question Bank and refer to the instructions to place the audio materials in the designated folder of the project.`
