@@ -18,3 +18,6 @@ class AudioSegmentNode:
 
     def is_head(self):
         return self._ord == HEAD_ID
+    
+    def get_audio_length(self):
+        return len(self._audio_seg) / 1000.0
