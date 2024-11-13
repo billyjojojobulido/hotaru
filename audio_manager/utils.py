@@ -34,12 +34,10 @@ def get_audio_media(audio_file):
 
 def play_audio_segment(audio_media, start, end):
     print(start, end)
-    print(get_audio_length(audio_media))
     if audio_media is None:
         return
     # 裁剪音频文件
     segment = audio_media[start*1000:end*1000] if end > 0 else audio_media[start*1000:]
 
-    print(get_audio_length(segment))
     # 播放音频片段
     play(segment)
