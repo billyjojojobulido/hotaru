@@ -41,3 +41,7 @@ def play_audio_segment(audio_media, start, end):
 
     # 播放音频片段
     play(segment)
+
+
+# 获取最终的循环列表
+def construct_audio_loop():

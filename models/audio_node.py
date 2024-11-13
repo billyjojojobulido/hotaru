@@ -3,6 +3,7 @@ from pydub.playback import play
 
 HEAD_ID = 0
 
+# 用于轮转调度 播放音频的数据结构 -> 循环链表
 class AudioSegmentNode:
     def __init__(self, audio_seg: AudioSegment, order, next=None):
         self._audio_seg = audio_seg
