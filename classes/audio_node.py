@@ -10,3 +10,7 @@ class AudioSegmentNode:
 
     def link(self, next_node):
         self._next = next_node
+
+
+    def next(self):
+        return self._next
