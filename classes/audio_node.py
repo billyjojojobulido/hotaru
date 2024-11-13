@@ -12,7 +12,6 @@ class AudioSegmentNode:
     def link(self, next_node):
         self._next = next_node
 
-
     def next(self):
         return self._next
 
@@ -21,3 +20,6 @@ class AudioSegmentNode:
     
     def get_audio_length(self):
         return len(self._audio_seg) / 1000.0
+    
+    def play_audio(self):
+        play(self._audio_seg)
