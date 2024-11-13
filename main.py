@@ -29,5 +29,5 @@ if __name__ == "__main__":
             print("Briefing: from {}s to {}s".format(cnt, start, end) if cnt == 0 else "Section: {} from {}s to {}s".format(cnt, start, end))
             play_audio_segment(audio_media, start, end)
             cnt += 1
-            start = audio.breakpoints[cnt - 1]
+            start = audio.breakpoints[cnt - 1] if cnt - 1 < len(audio_media) else audio.breakpoints[-1]
             end = audio.breakpoints[cnt] if cnt < len(audio.breakpoints) else -1
