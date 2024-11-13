@@ -1,6 +1,7 @@
 from pydub import AudioSegment
 from pydub.playback import play
 from models.audio_info import AudioInfo
+from models.audio_node import AudioSegmentNode
 import json
 
 CONFIG_FILE_NAME = "resources/audio_config.json"
@@ -44,6 +45,8 @@ def get_audio_segment(audio_media, start, end):
 # 获取最终的循环列表
 def construct_audio_loop(id):
     audio_info = fetch_audio_info(id)
+    dummy_head: AudioSegmentNode = AudioSegmentNode(None, -1)
+    ptr:AudioSegmentNode = dummy_head
     if audio_info is None:
         print("No such file, please check.")
         return None
@@ -59,3 +62,12 @@ def construct_audio_loop(id):
                 end = audio_info.breakpoints[i]
 
             audio_seg = get_audio_segment(audio_media, start, end)
+
+            new_node = AudioSegmentNode(audio_seg, i, None)
+            ptr.link(new_node)
+
+            ptr = new_node
+
+    # 成环
+    ptr.link(dummy_head.next())
+    return dummy_head.next()
