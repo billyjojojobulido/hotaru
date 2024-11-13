@@ -43,7 +43,3 @@ def play_audio_segment(audio_media, start, end):
     print(get_audio_length(segment))
     # 播放音频片段
     play(segment)
-
-
-def get_audio_length(audio_media):
-    return len(audio_media) / 1000.0
