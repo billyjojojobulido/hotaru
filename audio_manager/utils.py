@@ -32,11 +32,18 @@ def get_audio_media(audio_file):
     except Exception as e:
         print("Error occurs when loading audio media".format(e))
 
-def play_audio_segment(audio_media, start=0, end=10):
+def play_audio_segment(audio_media, start, end):
+    print(start, end)
+    print(get_audio_length(audio_media))
     if audio_media is None:
         return
     # 裁剪音频文件
     segment = audio_media[start*1000:end*1000] if end > 0 else audio_media[start*1000:]
 
+    print(get_audio_length(segment))
     # 播放音频片段
     play(segment)
+
+
+def get_audio_length(audio_media):
+    return len(audio_media) / 1000.0
