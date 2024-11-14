@@ -29,25 +29,39 @@ class Window:
     界面功能初始化
     """
     def create_page(self):
-        Label(self.root).grid(row=0, stick='W', pady=10)
+        Label(self.root).grid(row=0, sticky='W', pady=10)
         # 第一行选项 - 源文件
         Label(self.init_window_frame).grid(row=1, column=0, padx=30)
-        Label(self.init_window_frame, text="请选择机经序号: ").grid(row=1, column=1, stick='W', pady=10)
+        Label(self.init_window_frame, text="请选择机经序号: ").grid(row=1, column=1, sticky='W', pady=10)
 
-        # self.src_entry.grid(row=1, column=1, stick='E')
+        # self.src_entry.grid(row=1, column=1, sticky='E')
 
         self.audio_combo_list = ttk.Combobox(
             self.init_window_frame,
             textvariable=self.audio_id,
-            width=20,
+            state='readonly',
+            width=25,
         )
+        # TODO 改成自动读取config
         self.audio_combo_list['values'] = (
-            "70001", "70002", "70003", "70004", "70090"
+            "70001 Disability support organizationand cricket - Social", 
+            "70002 Disability support organizationand cricket - Social", 
+            "70003 Disability support organizationand cricket - Social", 
+            "70004 Disability support organizationand cricket - Social",
+            "70090 Disability support organizationand cricket - Social"
         )
         self.audio_combo_list.current(0)   # 默认选择"一月"
-        # self.audio_combo_list.bind("<<ComboboxSelected>>", self.get_month)
+        self.audio_combo_list.bind("<<ComboboxSelected>>", self.on_select)
 
-        self.audio_combo_list.grid(row=1, column=2, stick='W')
+        self.audio_combo_list.grid(row=1, column=2, sticky='E')
+
+    def on_select(self, event):
+        # 阻止选中文本
+        event.widget.selection_clear()
+
+    # 获取音频下拉框的内容 (str)
+    def get_audio_id(self, event):
+        self.audio_id = self.audio_combo_list.get()
 
     def run(self):
         self.init_window_frame.mainloop()
