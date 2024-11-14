@@ -39,10 +39,16 @@ class Window:
         self.audio_combo_list = ttk.Combobox(
             self.init_window_frame,
             textvariable=self.audio_id,
-            width=20,
+            state='readonly',
+            width=25,
         )
+        # TODO 改成自动读取config
         self.audio_combo_list['values'] = (
-            "70001", "70002", "70003", "70004", "70090"
+            "70001 Disability support organizationand cricket - Social", 
+            "70002 Disability support organizationand cricket - Social", 
+            "70003 Disability support organizationand cricket - Social", 
+            "70004 Disability support organizationand cricket - Social",
+            "70090 Disability support organizationand cricket - Social"
         )
         self.audio_combo_list.current(0)   # 默认选择"一月"
         # self.audio_combo_list.bind("<<ComboboxSelected>>", self.get_month)
