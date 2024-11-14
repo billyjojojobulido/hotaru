@@ -50,7 +50,7 @@ class Window:
             "70004 Disability support organizationand cricket - Social",
             "70090 Disability support organizationand cricket - Social"
         )
-        self.audio_combo_list.current(0)   # 默认选择"一月"
+        self.audio_combo_list.current(0)   # 默认选择第一个
         self.audio_combo_list.bind("<<ComboboxSelected>>", self.on_select)
 
         self.audio_combo_list.grid(row=1, column=2, sticky='E')
