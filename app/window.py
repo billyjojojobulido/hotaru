@@ -7,7 +7,7 @@ from tkinter.filedialog import askopenfilename, askdirectory
 
 class Window:
 
-    def __init__(self, engine):
+    def __init__(self):
         # attr初始化
         self.root = Tk()
         self.init_window_frame = LabelFrame(self.root, text="")
@@ -17,3 +17,6 @@ class Window:
         self.root.title("Hotaru")
         self.root.geometry("600x400")
         self.root.attributes("-alpha", 1)
+
+    def run(self):
+        self.init_window_frame.mainloop()
