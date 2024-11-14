@@ -51,10 +51,13 @@ class Window:
             "70090 Disability support organizationand cricket - Social"
         )
         self.audio_combo_list.current(0)   # 默认选择"一月"
-        # self.audio_combo_list.bind("<<ComboboxSelected>>", self.get_audio_id)
+        self.audio_combo_list.bind("<<ComboboxSelected>>", self.on_select)
 
         self.audio_combo_list.grid(row=1, column=2, sticky='E')
-        # self.audio_combo_list.pack()
+
+    def on_select(self, event):
+        # 阻止选中文本
+        event.widget.selection_clear()
 
     # 获取音频下拉框的内容 (str)
     def get_audio_id(self, event):
