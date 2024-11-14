@@ -59,6 +59,16 @@ class Window:
         # 阻止选中文本
         event.widget.selection_clear()
 
+    """
+    调整屏幕大小 和 位置
+    """
+    def center_window(root, width, height):
+        # 获取屏幕尺寸以及计算位置
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x = (screen_width - width) // 2
+        y = (screen_height - height) // 2
+
     # 获取音频下拉框的内容 (str)
     def get_audio_id(self, event):
         self.audio_id = self.audio_combo_list.get()
