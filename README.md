@@ -12,8 +12,22 @@ Hotaru **ほたる** : Japanese word for firefly, which means that this applicat
 
 ## Project Environment
 
+**Base Dev Environment**
 - MacOS
 - Python3
+
+**Dev Dependencies**
+
+- pydub==0.25.1
+- simpleaudio==1.0.4
+
+## RoadMap
+
+- 🚀 V0: **Minimal Viable Product** that only supports cli control & limited audio samples ✅
+- 👀 V1: Add a **Simple UI** for better user experience && Add more Audio Sample
+- 🚧 V2: PC application with **Sophasiticated UI** with most of the audio samples configed
+- 🚧 V3: Extends to Web application.
+- 🚧 V4: Extends to Mobile application. (Maybe?)
 
 ## Terms and Conditions
 
