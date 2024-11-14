@@ -18,5 +18,15 @@ class Window:
         self.root.geometry("600x400")
         self.root.attributes("-alpha", 1)
 
+        self.create_page()
+
+
+    """
+    界面功能初始化
+    """
+    def create_page(self):
+        Label(self.root).grid(row=0, stick='W', pady=10)
+
+
     def run(self):
         self.init_window_frame.mainloop()
