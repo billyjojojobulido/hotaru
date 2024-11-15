@@ -164,3 +164,7 @@ cython_debug/
 
 # Local Files For Testing
 audio/
+
+
+# Operating System
+.DS_Store
