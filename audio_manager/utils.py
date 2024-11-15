@@ -6,21 +6,28 @@ import json
 
 CONFIG_FILE_NAME = "resources/audio_config.json"
 
-def fetch_audio_info(id: int) -> AudioInfo:
+
+def get_config_file():
     # 读取 JSON 文件
     try:
         with open(CONFIG_FILE_NAME, 'r') as file:
             audio_data = json.load(file)
         # 输出 JSON 数据的内容
-        for audio in audio_data:
-            if audio["id"] == id:
-                return AudioInfo(id, audio["file_name"], audio["file_path"], audio["breakpoints"])
+        return audio_data
     except FileNotFoundError:
         print("Config File: {} not found".format(CONFIG_FILE_NAME))
         return None
     except Exception as e:
         print("Error occurs during configuration".format(e))
         return None
+
+def fetch_audio_info(id: int) -> AudioInfo:
+    audio_data = get_config_file()
+    if audio_data is None: 
+        return None 
+    for audio in audio_data:
+        if audio["id"] == id:
+            return AudioInfo(id, audio["file_name"], audio["file_path"], audio["breakpoints"])
 
 def get_audio_media(audio_file):
     # 获取音频对象
