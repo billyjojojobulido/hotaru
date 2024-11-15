@@ -44,7 +44,7 @@ class Window:
             state='readonly',
             width=25,
         )
-        # TODO 改成自动读取config
+
         config_data = get_config_file()
 
         self.audio_combo_list['values'] = (
