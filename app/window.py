@@ -3,6 +3,7 @@ import tkinter
 from tkinter import ttk
 from tkinter import Label, Tk, LabelFrame, Entry, Button, StringVar
 from tkinter.filedialog import askopenfilename, askdirectory
+from audio_manager.utils import get_config_file
 
 
 class Window:
@@ -44,12 +45,10 @@ class Window:
             width=25,
         )
         # TODO 改成自动读取config
+        config_data = get_config_file()
+
         self.audio_combo_list['values'] = (
-            "70001 Disability support organizationand cricket - Social", 
-            "70002 Disability support organizationand cricket - Social", 
-            "70003 Disability support organizationand cricket - Social", 
-            "70004 Disability support organizationand cricket - Social",
-            "70090 Disability support organizationand cricket - Social"
+            [str(x["id"]) + " " + x["file_name"] for x in config_data]
         )
         self.audio_combo_list.current(0)   # 默认选择第一个
         self.audio_combo_list.bind("<<ComboboxSelected>>", self.on_select)
