@@ -55,9 +55,19 @@ class Window:
 
         self.audio_combo_list.grid(row=1, column=2, sticky='E')
 
-    def on_select(self, event):
-        # 阻止选中文本
-        event.widget.selection_clear()
+    # def on_select(self, event):
+    #     # 阻止选中文本
+    #     event.widget.selection_clear()
+
+    def on_click_audio_chosen():
+        print("音频已被选择")
+
+    def on_click_audio_play():
+        print("开始播放音频")
+
+    def on_click_play_next():
+        print("开始播放下一段音频")
+
 
     """
     调整屏幕大小 和 位置
