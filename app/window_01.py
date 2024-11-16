@@ -1,7 +1,7 @@
 import tkinter
 import tkinter.messagebox
 import customtkinter
-from audio_manager.utils import get_config_file
+from audio_manager.utils import get_config_file, construct_audio_loop
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -51,9 +51,13 @@ class App(customtkinter.CTk):
         self.audio_indicator = customtkinter.CTkLabel(self.audio_frame, text="未选择音频")
         self.audio_indicator.grid(row=3, column=0, padx=20, pady=(10, 10))
 
-        self.next_input_button = customtkinter.CTkButton(self.audio_frame, text="播放下一个",
-                                                           command=self._play_next)
-        self.next_input_button.grid(row=2, column=0, padx=20, pady=(10, 10))
+        self.play_button = customtkinter.CTkButton(self.audio_frame, text="播放",
+                                                           command=self._play)
+        self.play_button.grid(row=4, column=0, padx=20, pady=(10, 10))
+
+        self.next_button = customtkinter.CTkButton(self.audio_frame, text="下一个",
+                                                           command=self._next)
+        self.next_button.grid(row=5, column=0, padx=20, pady=(10, 10))
 
         # create slider and progressbar frame
         self.slider_progressbar_frame = customtkinter.CTkFrame(self, fg_color="transparent")
@@ -102,11 +106,30 @@ class App(customtkinter.CTk):
 
     def start_engine(self):
         a = self.combobox_1.get()
-        print(a)
+        try:
+            id = int(a[:5])
+            audio_loop = construct_audio_loop(id)
+            self.engine = audio_loop
+            self.engine.next()
+            self.audio_indicator._text = "机经加载完毕"
+            print( "机经加载完毕")
+        except FileNotFoundError:
+            self.audio_indicator._text = "该机经音频不存在, 请和萤火虫小助手确认"
+        except Exception as e:
+            self.audio_indicator._text = "机经无法播放: " + repr(e)
+            
 
-    def _play_next(self):
-        # TODO
-        pass
+    def _play(self):
+        if self.engine is None:
+            self.audio_indicator._text = "还没加载音频文件"
+            return
+        self.engine.play_audio()
+
+    def _next(self):
+        if self.engine is None:
+            self.audio_indicator._text = "还没加载音频文件"
+            return
+        self.engine.next()
 
     # @deprecated
     @DeprecationWarning
