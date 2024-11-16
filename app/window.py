@@ -62,6 +62,9 @@ class Window:
         self.audio_combo_list.event_generate('<Escape>')  # 尝试生成一个退出事件以清除可能的焦点状态
         event.widget.selection_clear()
 
+    def create_button(self, name, callback):
+        return ttk.Button(self.root, text=name, command=callback)
+
     def on_click_audio_chosen():
         print("音频已被选择")
 
