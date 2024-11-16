@@ -45,6 +45,8 @@ class Window:
             width=25,
         )
 
+        self.audio_combo_list.focus()
+
         config_data = get_config_file()
 
         self.audio_combo_list['values'] = (
@@ -57,7 +59,18 @@ class Window:
 
     def on_select(self, event):
         # 阻止选中文本
+        self.audio_combo_list.event_generate('<Escape>')  # 尝试生成一个退出事件以清除可能的焦点状态
         event.widget.selection_clear()
+
+    def on_click_audio_chosen():
+        print("音频已被选择")
+
+    def on_click_audio_play():
+        print("开始播放音频")
+
+    def on_click_play_next():
+        print("开始播放下一段音频")
+
 
     """
     调整屏幕大小 和 位置
