@@ -4,6 +4,7 @@ from audio_manager.utils import _test_audio_loop, construct_audio_loop
 from models.audio_node import AudioSegmentNode
 
 from app.window import Window
+from app.window_01 import App
 
 TEST_ID = 70090
 
@@ -28,6 +29,9 @@ if __name__ == "__main__":
     #     input("Press <Enter> To Play Next Segment >>> ")
     #     ptr = ptr.next()
 
-    app = Window()
+    # app = Window()
 
+    # app.run()
+
+    app = App()
     app.run()

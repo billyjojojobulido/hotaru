@@ -1,6 +1,7 @@
 import tkinter
 import tkinter.messagebox
 import customtkinter
+from audio_manager.utils import get_config_file
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -10,6 +11,14 @@ class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
 
+        ################
+        ### 服务端部分 ###
+        ################
+        self.engine = None
+
+        ################
+        ### UI部分 ###
+        ################
         # configure window
         self.title("CustomTkinter complex_example.py")
         self.geometry(f"{800}x{640}")
@@ -36,7 +45,7 @@ class App(customtkinter.CTk):
         self.combobox_1.grid(row=1, column=0, padx=20, pady=(5, 5))
 
         self.string_input_button = customtkinter.CTkButton(self.tabview.tab("音频控制台"), text="选择",
-                                                           command=self.open_input_dialog_event)
+                                                           command=self.start_engine)
         self.string_input_button.grid(row=2, column=0, padx=20, pady=(10, 10))
 
 
@@ -85,14 +94,23 @@ class App(customtkinter.CTk):
 
 
     def _init_audio_option_menu(self):
-        return customtkinter.CTkOptionMenu(self.tabview.tab("音频控制台"), dynamic_resizing=False, 
-                                           values=["Value 1", "Value 2", "Value Long Long Long"], width=200)
 
+        config_data = get_config_file()
+        options = [str(x["id"]) + " " + x["file_name"] for x in config_data] if config_data else []
+
+        return customtkinter.CTkOptionMenu(self.tabview.tab("音频控制台"), dynamic_resizing=False, 
+                                           values=options, width=200)
+
+    def start_engine(self):
+        a = self.combobox_1.get()
+        print(a)
+
+    # @deprecated
+    @DeprecationWarning
     def open_input_dialog_event(self):
         dialog = customtkinter.CTkInputDialog(text="Type in a number:", title="CTkInputDialog")
         print("CTkInputDialog:", dialog.get_input())
 
 
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+    def run(self):
+        self.mainloop()
