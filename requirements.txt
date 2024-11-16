@@ -1,2 +1,5 @@
+customtkinter==5.2.2
+darkdetect==0.8.0
+packaging==24.2
 pydub==0.25.1
 simpleaudio==1.0.4
