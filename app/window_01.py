@@ -29,13 +29,15 @@ class App(customtkinter.CTk):
         self.tabview.add("音频控制台")
         self.tabview.tab("音频控制台").grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
 
-        self.optionmenu_1 = customtkinter.CTkOptionMenu(self.tabview.tab("音频控制台"), dynamic_resizing=False,
-                                                        values=["Value 1", "Value 2", "Value Long Long Long"], width=200)
-        self.optionmenu_1.grid(row=0, column=0, padx=20, pady=(20, 10))
+        # self.optionmenu_1 = customtkinter.CTkOptionMenu(self.tabview.tab("音频控制台"), dynamic_resizing=False,
+        #                                                 values=["Value 1", "Value 2", "Value Long Long Long"], width=200)
+        # self.optionmenu_1.grid(row=0, column=0, padx=20, pady=(20, 10))
 
         # 选择音频菜单
-        self.combobox_1 = self._init_audio_combo_box()
-        self.combobox_1.grid(row=1, column=0, padx=20, pady=(10, 10))
+        customtkinter.CTkLabel(self.tabview.tab("音频控制台"), text="请选择机经序号").grid(row=0, column=0, padx=20, pady=(10, 10))
+
+        self.combobox_1 = self._init_audio_option_menu()
+        self.combobox_1.grid(row=1, column=0, padx=20, pady=(5, 5))
 
         self.string_input_button = customtkinter.CTkButton(self.tabview.tab("音频控制台"), text="Open CTkInputDialog",
                                                            command=self.open_input_dialog_event)
@@ -72,7 +74,7 @@ class App(customtkinter.CTk):
         # set default values
         self.scrollable_frame_switches[0].select()
         self.scrollable_frame_switches[4].select()
-        self.optionmenu_1.set("CTkOptionmenu")
+        # self.optionmenu_1.set("CTkOptionmenu")
         self.combobox_1.set("CTkComboBox")
         self.slider_2.configure(command=self.progressbar_3.set)
         self.progressbar_1.configure(mode="indeterminnate")
@@ -82,9 +84,9 @@ class App(customtkinter.CTk):
         self.seg_button_1.set("Value 2")
 
 
-    def _init_audio_combo_box(self):
+    def _init_audio_option_menu(self):
         return customtkinter.CTkOptionMenu(self.tabview.tab("音频控制台"), dynamic_resizing=False, 
-                                           values=["Value 1", "Value 2", "Value Long Long Long"])
+                                           values=["Value 1", "Value 2", "Value Long Long Long"], width=200)
 
     def open_input_dialog_event(self):
         dialog = customtkinter.CTkInputDialog(text="Type in a number:", title="CTkInputDialog")
