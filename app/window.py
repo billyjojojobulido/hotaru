@@ -16,7 +16,7 @@ class Window:
 
         # 数据变量
         self.audio_combo_list = None    # 机经音频选择下拉框
-        self.audio_id = -1
+        self.audio_id = StringVar()
 
         # 按钮组件
         self.play_btn = None
@@ -34,6 +34,7 @@ class Window:
 
     def on_click_audio_chosen(self):
         print("音频已被选择")
+        print(self.audio_id)
 
     def on_click_audio_play(self):
         print("开始播放音频")
@@ -69,6 +70,9 @@ class Window:
         )
         self.audio_combo_list.current(0)   # 默认选择第一个
         self.audio_combo_list.bind("<<ComboboxSelected>>", self.on_select)
+
+
+        self.audio_combo_list.event_generate('<Escape>')  # 尝试生成一个退出事件以清除可能的焦点状态
 
         self.audio_combo_list.grid(row=2, column=1, sticky='E')
 
@@ -106,6 +110,7 @@ class Window:
 
     # 获取音频下拉框的内容 (str)
     def get_audio_id(self, event):
+        print(self.audio_combo_list.get())
         self.audio_id = self.audio_combo_list.get()
 
     def run(self):
