@@ -33,23 +33,22 @@ class App(customtkinter.CTk):
         self.textbox.grid(row=0, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
 
         # create tabview
-        self.tabview = customtkinter.CTkTabview(self, width=250)
-        self.tabview.grid(row=0, column=1, padx=(20, 20), pady=(20, 0), sticky="nsew")
-        self.tabview.add("音频控制台")
-        self.tabview.tab("音频控制台").grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
+        self.audio_frame = customtkinter.CTkScrollableFrame(self, label_text="音频控制台", width=250)
+        self.audio_frame.grid(row=0, column=1, padx=(20, 20), pady=(20, 0), sticky="nsew")
+        self.audio_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
 
         # 选择音频菜单
-        customtkinter.CTkLabel(self.tabview.tab("音频控制台"), text="请选择机经序号").grid(row=0, column=0, padx=20, pady=(10, 10))
+        customtkinter.CTkLabel(self.audio_frame, text="请选择机经序号").grid(row=0, column=0, padx=20, pady=(10, 10))
 
         self.combobox_1 = self._init_audio_option_menu()
         self.combobox_1.grid(row=1, column=0, padx=20, pady=(5, 5))
 
-        self.string_input_button = customtkinter.CTkButton(self.tabview.tab("音频控制台"), text="选择",
+        self.string_input_button = customtkinter.CTkButton(self.audio_frame, text="选择",
                                                            command=self.start_engine)
         self.string_input_button.grid(row=2, column=0, padx=20, pady=(10, 10))
 
 
-        self.audio_indicator = customtkinter.CTkLabel(self.tabview.tab("音频控制台"), text="未选择音频")
+        self.audio_indicator = customtkinter.CTkLabel(self.audio_frame, text="未选择音频")
         self.audio_indicator.grid(row=3, column=0, padx=20, pady=(10, 10))
 
         # create slider and progressbar frame
@@ -71,7 +70,7 @@ class App(customtkinter.CTk):
         self.scrollable_frame.grid(row=1, column=1, padx=(20, 0), pady=(20, 0), sticky="nsew")
         self.scrollable_frame.grid_columnconfigure(0, weight=1)
         self.scrollable_frame_switches = []
-        for i in range(100):
+        for i in range(5):
             switch = customtkinter.CTkSwitch(master=self.scrollable_frame, text=f"CTkSwitch {i}")
             switch.grid(row=i, column=0, padx=10, pady=(0, 20))
             self.scrollable_frame_switches.append(switch)
@@ -94,7 +93,7 @@ class App(customtkinter.CTk):
         config_data = get_config_file()
         options = [str(x["id"]) + " " + x["file_name"] for x in config_data] if config_data else []
 
-        return customtkinter.CTkOptionMenu(self.tabview.tab("音频控制台"), dynamic_resizing=False, 
+        return customtkinter.CTkOptionMenu(self.audio_frame, dynamic_resizing=False, 
                                            values=options, width=200)
 
     def start_engine(self):
