@@ -51,6 +51,10 @@ class App(customtkinter.CTk):
         self.audio_indicator = customtkinter.CTkLabel(self.audio_frame, text="未选择音频")
         self.audio_indicator.grid(row=3, column=0, padx=20, pady=(10, 10))
 
+        self.next_input_button = customtkinter.CTkButton(self.audio_frame, text="播放下一个",
+                                                           command=self._play_next)
+        self.next_input_button.grid(row=2, column=0, padx=20, pady=(10, 10))
+
         # create slider and progressbar frame
         self.slider_progressbar_frame = customtkinter.CTkFrame(self, fg_color="transparent")
         self.slider_progressbar_frame.grid(row=1, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
@@ -99,6 +103,10 @@ class App(customtkinter.CTk):
     def start_engine(self):
         a = self.combobox_1.get()
         print(a)
+
+    def _play_next(self):
+        # TODO
+        pass
 
     # @deprecated
     @DeprecationWarning
