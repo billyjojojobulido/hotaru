@@ -45,6 +45,8 @@ class Window:
             width=25,
         )
 
+        self.audio_combo_list.focus()
+
         config_data = get_config_file()
 
         self.audio_combo_list['values'] = (
@@ -55,9 +57,13 @@ class Window:
 
         self.audio_combo_list.grid(row=1, column=2, sticky='E')
 
-    # def on_select(self, event):
-    #     # 阻止选中文本
-    #     event.widget.selection_clear()
+    def on_select(self, event):
+        # 阻止选中文本
+        print("选中了")
+        print("当前状态:", self.audio_combo_list['state'])
+        self.audio_combo_list.event_generate('<Escape>')  # 尝试生成一个退出事件以清除可能的焦点状态
+        print("当前状态:", self.audio_combo_list['state'])
+        # event.widget.selection_clear()
 
     def on_click_audio_chosen():
         print("音频已被选择")
