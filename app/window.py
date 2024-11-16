@@ -59,11 +59,8 @@ class Window:
 
     def on_select(self, event):
         # 阻止选中文本
-        print("选中了")
-        print("当前状态:", self.audio_combo_list['state'])
         self.audio_combo_list.event_generate('<Escape>')  # 尝试生成一个退出事件以清除可能的焦点状态
-        print("当前状态:", self.audio_combo_list['state'])
-        # event.widget.selection_clear()
+        event.widget.selection_clear()
 
     def on_click_audio_chosen():
         print("音频已被选择")
