@@ -37,7 +37,7 @@ class App(customtkinter.CTk):
 
         # create tabview
         self.audio_frame = customtkinter.CTkScrollableFrame(self, label_text="音频控制台", width=250)
-        self.audio_frame.grid(row=0, column=1, padx=(20, 20), pady=(20, 0), sticky="nsew")
+        self.audio_frame.grid(row=0, column=1, rowspan=2, padx=(20, 20), pady=(20, 20), sticky="nsew")
         self.audio_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
 
         # 选择音频菜单
@@ -54,13 +54,17 @@ class App(customtkinter.CTk):
         self.audio_indicator = customtkinter.CTkLabel(self.audio_frame, text="-- 未选择音频 --")
         self.audio_indicator.grid(row=3, column=0, padx=20, pady=(10, 10))
 
+        self.space_holder_1 =  customtkinter.CTkLabel(self.audio_frame, text=" ")
+        self.space_holder_1.grid(row=4, column=0, padx=20, pady=(10, 10))
+
+
         self.play_button = customtkinter.CTkButton(self.audio_frame, text="播放",
                                                            command=self._play)
-        self.play_button.grid(row=4, column=0, padx=20, pady=(10, 10))
+        self.play_button.grid(row=5, column=0, padx=20, pady=(10, 10))
 
         self.next_button = customtkinter.CTkButton(self.audio_frame, text="下一个",
                                                            command=self._next)
-        self.next_button.grid(row=5, column=0, padx=20, pady=(10, 10))
+        self.next_button.grid(row=6, column=0, padx=20, pady=(10, 5))
 
         # create slider and progressbar frame
         self.slider_progressbar_frame = customtkinter.CTkFrame(self, fg_color="transparent")
@@ -77,20 +81,20 @@ class App(customtkinter.CTk):
         self.progressbar_3.grid(row=0, column=1, rowspan=5, padx=(10, 20), pady=(10, 10), sticky="ns")
 
         # create scrollable frame
-        self.scrollable_frame = customtkinter.CTkScrollableFrame(self, label_text="CTkScrollableFrame")
-        self.scrollable_frame.grid(row=1, column=1, padx=(20, 0), pady=(20, 0), sticky="nsew")
-        self.scrollable_frame.grid_columnconfigure(0, weight=1)
-        self.scrollable_frame_switches = []
-        for i in range(5):
-            switch = customtkinter.CTkSwitch(master=self.scrollable_frame, text=f"CTkSwitch {i}")
-            switch.grid(row=i, column=0, padx=10, pady=(0, 20))
-            self.scrollable_frame_switches.append(switch)
+        # self.scrollable_frame = customtkinter.CTkScrollableFrame(self, label_text="CTkScrollableFrame")
+        # self.scrollable_frame.grid(row=1, column=1, padx=(20, 0), pady=(20, 0), sticky="nsew")
+        # self.scrollable_frame.grid_columnconfigure(0, weight=1)
+        # self.scrollable_frame_switches = []
+        # for i in range(5):
+        #     switch = customtkinter.CTkSwitch(master=self.scrollable_frame, text=f"CTkSwitch {i}")
+        #     switch.grid(row=i, column=0, padx=10, pady=(0, 20))
+        #     self.scrollable_frame_switches.append(switch)
 
         # create checkbox and switch frame
 
         # set default values
-        self.scrollable_frame_switches[0].select()
-        self.scrollable_frame_switches[4].select()
+        # self.scrollable_frame_switches[0].select()
+        # self.scrollable_frame_switches[4].select()
         # self.optionmenu_1.set("CTkOptionmenu")
         self.slider_2.configure(command=self.progressbar_3.set)
         self.textbox.insert("0.0", "CTkTextbox\n\n" + "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n\n" * 20)
