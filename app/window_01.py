@@ -1,7 +1,7 @@
 import tkinter
 import tkinter.messagebox
 import customtkinter
-from audio_manager.utils import get_config_file, construct_audio_loop
+from audio_manager.utils import get_config_file, construct_audio_loop, _test_audio_loop
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -89,7 +89,6 @@ class App(customtkinter.CTk):
         self.scrollable_frame_switches[0].select()
         self.scrollable_frame_switches[4].select()
         # self.optionmenu_1.set("CTkOptionmenu")
-        self.combobox_1.set("CTkComboBox")
         self.slider_2.configure(command=self.progressbar_3.set)
         self.textbox.insert("0.0", "CTkTextbox\n\n" + "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n\n" * 20)
         self.seg_button_1.configure(values=["CTkSegmentedButton", "Value 2", "Value 3"])
@@ -97,20 +96,23 @@ class App(customtkinter.CTk):
 
 
     def _init_audio_option_menu(self):
-
         config_data = get_config_file()
         options = [str(x["id"]) + " " + x["file_name"] for x in config_data] if config_data else []
-
-        return customtkinter.CTkOptionMenu(self.audio_frame, dynamic_resizing=False, 
+        combobox = customtkinter.CTkOptionMenu(self.audio_frame, dynamic_resizing=False, 
                                            values=options, width=200)
+        # combobox.set(options[0])
+        combobox.set("70090 TEST ONLY")
+        return combobox
 
     def start_engine(self):
         a = self.combobox_1.get()
         try:
             id = int(a[:5])
+            _test_audio_loop(id)
             audio_loop = construct_audio_loop(id)
-            self.engine = audio_loop
-            self.engine.next()
+            if audio_loop is None or audio_loop.next is None:
+                return
+            self.engine = audio_loop.next()
             self.audio_indicator._text = "机经加载完毕"
             print( "机经加载完毕")
         except FileNotFoundError:
@@ -129,7 +131,10 @@ class App(customtkinter.CTk):
         if self.engine is None:
             self.audio_indicator._text = "还没加载音频文件"
             return
-        self.engine.next()
+        print("播放下一个")
+        self.engine = self.engine.next()
+
+    
 
     # @deprecated
     @DeprecationWarning
