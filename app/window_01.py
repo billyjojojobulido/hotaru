@@ -125,18 +125,20 @@ class App(customtkinter.CTk):
 
     def _play(self):
         if self.engine is None:
-            self.audio_indicator.configure(text="还没加载音频文件")
+            self._audio_indicate_user("-- 还没加载音频文件 --")
             return
         self.engine.play_audio()
 
     def _next(self):
         if self.engine is None:
-            self.audio_indicator._text = "-- 还没加载音频文件 --"
+            self._audio_indicate_user("-- 还没加载音频文件 --")
             return
         print("播放下一个")
         self.engine = self.engine.next()
 
-    
+    # 用来更新 "音频控制面板" 的提示文字
+    def _audio_indicate_user(self, txt: str):
+        self.audio_indicator.configure(text=str)
 
     # @deprecated
     @DeprecationWarning
