@@ -20,7 +20,7 @@ class App(customtkinter.CTk):
         ### UI部分 ###
         ################
         # configure window
-        self.title("CustomTkinter complex_example.py")
+        self.title("Hotaru - v1.0.1")
         # self.geometry(f"{800}x{640}")
 
         self.geometry(f"{640}x{480}")
