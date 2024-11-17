@@ -100,8 +100,10 @@ class App(customtkinter.CTk):
         options = [str(x["id"]) + " " + x["file_name"] for x in config_data] if config_data else []
         combobox = customtkinter.CTkOptionMenu(self.audio_frame, dynamic_resizing=False, 
                                            values=options, width=200)
-        # combobox.set(options[0])
-        combobox.set("70090 TEST ONLY")
+        if options is not None and len(options) > 0:
+            combobox.set(options[0])
+        else:
+            combobox.set("-- Empty --")
         return combobox
 
     def start_engine(self):
