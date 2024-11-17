@@ -138,7 +138,7 @@ class App(customtkinter.CTk):
 
     # 用来更新 "音频控制面板" 的提示文字
     def _audio_indicate_user(self, txt: str):
-        self.audio_indicator.configure(text=str)
+        self.audio_indicator.configure(text=txt)
 
     # @deprecated
     @DeprecationWarning
