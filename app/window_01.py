@@ -115,12 +115,12 @@ class App(customtkinter.CTk):
             if audio_loop is None or audio_loop.next is None:
                 return
             self.engine = audio_loop.next()
-            self.audio_indicator._text = "机经加载完毕"
+            self._audio_indicate_user("-- 机经加载完毕 --")
             print( "机经加载完毕")
         except FileNotFoundError:
-            self.audio_indicator._text = "该机经音频不存在, 请和萤火虫小助手确认"
+            self._audio_indicate_user("-- 该机经音频不存在 --")
         except Exception as e:
-            self.audio_indicator._text = "机经无法播放: " + repr(e)
+            self._audio_indicate_user("-- 机经无法播放: {} --".format(repr(e)))
             
 
     def _play(self):
