@@ -97,7 +97,7 @@ class App(customtkinter.CTk):
         # self.scrollable_frame_switches[4].select()
         # self.optionmenu_1.set("CTkOptionmenu")
         self.slider_2.configure(command=self.progressbar_3.set)
-        self.textbox.insert("0.0", "CTkTextbox\n\n" + "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n\n" * 20)
+        self.textbox.insert("0.0", "")
         self.seg_button_1.configure(values=["CTkSegmentedButton", "Value 2", "Value 3"])
         self.seg_button_1.set("Value 2")
 
