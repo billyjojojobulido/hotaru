@@ -4,7 +4,7 @@ from models.audio_info import AudioInfo
 from models.audio_node import AudioSegmentNode
 import json
 
-CONFIG_FILE_NAME = "./resources/audio_config.json"
+CONFIG_FILE_NAME = "resources/audio_config.json"
 
 
 def get_config_file():

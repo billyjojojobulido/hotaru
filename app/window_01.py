@@ -21,12 +21,15 @@ class App(customtkinter.CTk):
         ################
         # configure window
         self.title("CustomTkinter complex_example.py")
-        self.geometry(f"{800}x{640}")
+        # self.geometry(f"{800}x{640}")
+
+        self.geometry(f"{640}x{480}")
 
         # configure grid layout (4x4)
         self.grid_columnconfigure(0, weight=1)
-        self.grid_columnconfigure((1), weight=0)
-        self.grid_rowconfigure((0, 1, 2), weight=1)
+        self.grid_columnconfigure(1, weight=1)
+        # self.grid_rowconfigure((0, 1, 2), weight=1)
+        self.grid_rowconfigure((0, 1), weight=1)
 
         # create textbox
         self.textbox = customtkinter.CTkTextbox(self)
@@ -48,7 +51,7 @@ class App(customtkinter.CTk):
         self.string_input_button.grid(row=2, column=0, padx=20, pady=(10, 10))
 
 
-        self.audio_indicator = customtkinter.CTkLabel(self.audio_frame, text="未选择音频")
+        self.audio_indicator = customtkinter.CTkLabel(self.audio_frame, text="-- 未选择音频 --")
         self.audio_indicator.grid(row=3, column=0, padx=20, pady=(10, 10))
 
         self.play_button = customtkinter.CTkButton(self.audio_frame, text="播放",
@@ -113,6 +116,8 @@ class App(customtkinter.CTk):
             _test_audio_loop(id)
             audio_loop = construct_audio_loop(id)
             if audio_loop is None or audio_loop.next is None:
+                print("A")
+                self._audio_indicate_user("-- 该机经音频不存在 --")
                 return
             self.engine = audio_loop.next()
             self._audio_indicate_user("-- 机经加载完毕 --")
