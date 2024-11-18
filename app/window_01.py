@@ -134,9 +134,14 @@ class App(customtkinter.CTk):
         if self.engine is None:
             self._audio_indicate_user("-- 还没加载音频文件 --")
             return
-        self._textbox_add("播放下一个\n")
+        self._console_log_next(self.engine.get_section_id())
         self.engine = self.engine.next()
         
+    def _console_log_next(self, sec_id: int):
+        if sec_id == 0:
+            self._textbox_add(">> 切换至Briefing\n")
+        else:
+            self._textbox_add(">> 切换至 Dialogue: {}\n".format(sec_id))
 
     # 用来更新 "音频控制面板" 的提示文字
     def _audio_indicate_user(self, txt: str):
