@@ -22,5 +22,17 @@
         "file_name": "Disability support organizationand cricket - Social",
         "file_path": "resources/audio/70090.mp3",
         "breakpoints": [24, 29, 42, 52, 62, 76, 89, 101, 113, 124, 135, 146, 156, 165, 175, 182, -1]
+    },
+    {
+        "id": 70170,
+        "file_name": "Home-based Backery Business - Business",
+        "file_path": "resources/audio/70170.mp3",
+        "breakpoints": [26, 33, 46, 59, 69, 80, 89, 101, 112, 125, 136, 149, 160, 171, 181, -1]
+    },
+    {
+        "id": 70171,
+        "file_name": "Enrol to Vote - Legal",
+        "file_path": "resources/audio/70171.mp3",
+        "breakpoints": [28, 37, 47, 55, 65, 76, 86, 98, 111, 125, 137, 149, 162, -1]
     }
 ]
