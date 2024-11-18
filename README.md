@@ -4,7 +4,7 @@
 
 ## Project Status
 
-🚧 Work In Progress
+🎉 Viable Product Available Now ｜  🚧 Work In Progress
 
 ## Project Background
 
@@ -18,16 +18,31 @@ Hotaru **ほたる** : Japanese word for firefly, which means that this applicat
 
 **Dev Dependencies**
 
+- customtkinter==5.2.2
 - pydub==0.25.1
 - simpleaudio==1.0.4
 
 ## RoadMap
 
 - 🚀 V0: **Minimal Viable Product** that only supports cli control & limited audio samples ✅
-- 👀 V1: Add a **Simple UI** for better user experience && Add more Audio Sample
-- 🚧 V2: PC application with **Sophasiticated UI** with most of the audio samples configed
+- 🚀 V1: Add a **Simple UI** for better user experience && Add more Audio Sample ✅ (More minor versions might be released later)
+- 👀 V2: PC application with **Sophasiticated UI** with most of the audio samples configed
 - 🚧 V3: Extends to Web application.
 - 🚧 V4: Extends to Mobile application. (Maybe?)
+
+## Contributing
+We are grateful to the community for contributing bugfixes and improvements of the product, as well as the contribution in providing more audio samples, whih is an extremely time-consuming work. Read below to learn how you can take part in improving Hotaru"
+
+### Code of Conduct
+Hotaru has adopted a Code of Conduct that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.
+
+**TODO**
+
+### Contributing Guide
+Read our contributing guide to learn about our development process, how to propose bugfixes and improvements, and how to create, test, and contribute your own audio samples.
+
+**TODO**
+
 
 ## Terms and Conditions
 
