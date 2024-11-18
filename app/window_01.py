@@ -92,7 +92,7 @@ class App(customtkinter.CTk):
         # self.scrollable_frame_switches[0].select()
         # self.scrollable_frame_switches[4].select()
         # self.optionmenu_1.set("CTkOptionmenu")
-        self.textbox.insert("0.0", "")
+        # self.textbox.insert("0.0", "")
 
 
     def _init_audio_option_menu(self):
@@ -128,14 +128,20 @@ class App(customtkinter.CTk):
         if self.engine is None:
             self._audio_indicate_user("-- 还没加载音频文件 --")
             return
+    
+        if self.engine.get_section_id() == 0:
+            self._textbox_add(">> 开始播放 Briefing\n")
+        else:
+            self._textbox_add(">> 开始播放 Dialogue: {}\n".format(self.engine.get_section_id()))
+        
         self.engine.play_audio()
 
     def _next(self):
         if self.engine is None:
             self._audio_indicate_user("-- 还没加载音频文件 --")
             return
-        self._console_log_next(self.engine.get_section_id())
         self.engine = self.engine.next()
+        self._console_log_next(self.engine.get_section_id())
         
     def _console_log_next(self, sec_id: int):
         if sec_id == 0:
@@ -149,7 +155,7 @@ class App(customtkinter.CTk):
 
 
     def _textbox_add(self, txt:str):
-        self.textbox.insert("{}.0".format(self.textbox_index), txt)
+        self.textbox.insert("0.0", txt)
         self.textbox_index += 1
 
     # @deprecated
