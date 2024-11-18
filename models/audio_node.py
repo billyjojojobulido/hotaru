@@ -15,6 +15,9 @@ class AudioSegmentNode:
 
     def next(self):
         return self._next
+    
+    def is_tail(self):
+        return self._next.is_head()
 
     def is_head(self):
         return self._ord == HEAD_ID
@@ -23,5 +26,8 @@ class AudioSegmentNode:
         return len(self._audio_seg) / 1000.0
     
     def play_audio(self):
-        print(self._audio_seg)
         play(self._audio_seg)
+
+    def get_section_id(self):
+        return self._ord
+    
