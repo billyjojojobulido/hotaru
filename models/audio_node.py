@@ -15,6 +15,9 @@ class AudioSegmentNode:
 
     def next(self):
         return self._next
+    
+    def is_tail(self):
+        return self._next.is_head()
 
     def is_head(self):
         return self._ord == HEAD_ID
