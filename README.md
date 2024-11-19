@@ -1,6 +1,9 @@
 # Hotaru: A CCL Training Audio Player
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3.9-green.svg">
+  <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg">
+</p>
 
 ## Project Status
 
