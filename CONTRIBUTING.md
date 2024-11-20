@@ -10,7 +10,7 @@ If you detected some bugs in the code or unexpected results while using the app,
 
 ### New features
 
-If you have an idea in mind that might be an interesting feature for Hotaru, you can also nominate it in Issue by adding the **enhancement** tag. The maintainers will review it, and it might be developed and launched in future versions.
+If you have an idea in mind that might be an interesting feature for Hotaru, you can also nominate it in Issue by adding the **enhancement** tag. The maintainers will review it, and it might be developed and launched in future versions. We would also encourage you to try to develop it yourselves, and you can can contribute by merging it to the `main` branch via creating a pull request.
 
 ## As A CCL Learner
 
