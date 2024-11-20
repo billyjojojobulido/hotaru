@@ -34,4 +34,4 @@ It doesn't have to be very professional, our developers might contact you to hel
 
 ### More Audio Sample 🌟
 
-As time goes by, there will be more and more exam recordings worth practicing.
+As time goes by, there will be more and more exam recordings worth practicing. Since Hotaru advocates a free development environment, unfortunately our development team cannot guarantee that they will continue to maintain it in the future.
