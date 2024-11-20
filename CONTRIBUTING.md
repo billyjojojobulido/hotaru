@@ -6,7 +6,7 @@ As an open source CCL training tool, Hotaru welcomes all the CCL learners and de
 
 ### Find A Bug
 
-If you detected some bugs in the code or unexpected results while using the app, you can nominate it in Issue by adding the **bug** tag at it.
+If you detected some bugs in the code or unexpected results while using the app, you can nominate it in Issue by adding the **bug** tag at it. You are of course welcomed to try to fix it yourself, and you can contribute by merging it to the `main` branch via creating a pull request.
 
 ## As A CCL Learner
 
