@@ -18,4 +18,6 @@ If you find any flaws in some existing documents, you can fix it in your own bra
 
 ## As A CCL Learner
 
-How to contribute to the Audio sources
+`Don't worry, you don't have to know how to code to make contributions.`
+
+### New features
