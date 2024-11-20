@@ -21,3 +21,5 @@ If you find any flaws in some existing documents, you can fix it in your own bra
 `Don't worry, you don't have to know how to code to make contributions.`
 
 ### New features
+
+You might find some difficulties while using Hotaru, don't just take it for granted! We would appreciate it if you can nominate it in the Issue board.
