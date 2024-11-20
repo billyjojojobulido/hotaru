@@ -44,8 +44,7 @@ Hotaru has adopted a Code of Conduct that we expect project participants to adhe
 ### Contributing Guide
 Read our contributing guide to learn about our development process, how to propose bugfixes and improvements, and how to create, test, and contribute your own audio samples.
 
-**TODO**
-
+[CONTRIBUTING.md](https://github.com/billyjojojobulido/hotaru/blob/main/CONTRIBUTING.md)
 
 ## Terms and Conditions
 
