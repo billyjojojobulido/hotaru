@@ -41,3 +41,5 @@ As time goes by, there will be more and more exam recordings worth practicing, u
 **Luckily, we have you!** It is not a difficult task and does not require any expertise to create audio sample information. All you need is to be familiar with the CCL exam process and have a audio player. There will be more instructions on how to create audio sample.
 
 After you created your own audio sample information, you can added it to the audio_config.json file and create a pull request to contribute, our maintainer will review and test your modification and merge it to `main` if there is no issue with it.
+
+We would appreciate it if you can test it on your local environment and follow code of conduct.
