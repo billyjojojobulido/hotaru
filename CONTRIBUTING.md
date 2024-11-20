@@ -31,3 +31,7 @@ We would appreciate it if you could attach some more images or video to better d
 When you are practicing CCL with Hotaru, you may have a flash of inspiration and think of some functions that may help your practice, but not provided by Hotaru yet. Don't hide it! It could help us to improve if you can nominate it in the Issue board.
 
 It doesn't have to be very professional, our developers might contact you to help if we find your idea is interesting, and worth developing.
+
+### More Audio Sample 🌟
+
+As time goes by, there will be more and more exam recordings worth practicing.
