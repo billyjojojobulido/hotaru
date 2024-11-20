@@ -23,3 +23,5 @@ If you find any flaws in some existing documents, you can fix it in your own bra
 ### New features
 
 You might find some difficulties while using Hotaru, don't just take it for granted! We would appreciate it if you can nominate it in the Issue board.
+
+It doesn't have to be very professional, and our developers might contact you if we find your idea is interesting, and worth developing.
