@@ -34,4 +34,6 @@ It doesn't have to be very professional, our developers might contact you to hel
 
 ### More Audio Sample 🌟
 
-As time goes by, there will be more and more exam recordings worth practicing. Since Hotaru advocates a free development environment, unfortunately our development team cannot guarantee that they will continue to maintain it in the future.
+As time goes by, there will be more and more exam recordings worth practicing, unfortunately our development team cannot guarantee that they will continue to maintain them in the future.
+
+**Please don't blame them for this**, as Hotaru advocates a free development environment, it is perfectly legitimate for some developers to choose not to contribute any more after they passes the CCL exam themselves, which is also worth congratulating 🎉.
