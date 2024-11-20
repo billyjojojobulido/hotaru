@@ -20,8 +20,14 @@ If you find any flaws in some existing documents, you can fix it in your own bra
 
 `Don't worry, you don't have to know how to code to make contributions.`
 
+### Find A Bug
+
+You might find some difficulties while using Hotaru, don't just take it for granted! We would appreciate it if you can nominate it in the Issue board. We would appreciate it if you could attach some more images or video to better describe your delima, so it would be easier for our developers to fix them.
+
 ### New features
 
 You might find some difficulties while using Hotaru, don't just take it for granted! We would appreciate it if you can nominate it in the Issue board.
 
 It doesn't have to be very professional, and our developers might contact you if we find your idea is interesting, and worth developing.
+
+### Find
