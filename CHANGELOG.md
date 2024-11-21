@@ -9,3 +9,7 @@
 - Only one audio sample available
 
 ### core features
+
+- Audio Segment based on pydub
+- Audio Playing based on simpleaudio
+- Audio Scheduling based on **circular linked list**
