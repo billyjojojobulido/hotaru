@@ -9,6 +9,11 @@
 
 ### GUI @ PC
 
+- Simple Interactable UI baed on Tkinter
+- Able to choose and load audio source on GUI.
+- Able to play audio on GUI.
+- Able to change to next audio on GUI.
+
 ## 0.0.1 (November 14, 2024)
 
 ### CLI Tool
