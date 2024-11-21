@@ -24,6 +24,30 @@
         "breakpoints": [24, 29, 42, 52, 62, 76, 89, 101, 113, 124, 135, 146, 156, 165, 175, 182, -1]
     },
     {
+        "id": 70162,
+        "file_name": "Planning a neighbourhood gathering - Social",
+        "file_path": "resources/audio/70162.mp3",
+        "breakpoints": [27, 37, 49, 64, 77, 91, 106, 122, 136, 153, 166, 183, 196, 209, -1]
+    },
+    {
+        "id": 70163,
+        "file_name": "Guiding a Daughter's School Transition - Social + Education",
+        "file_path": "resources/audio/70163.mp3",
+        "breakpoints": [27, 39, 50, 62, 77, 92, 107, 123, 137, 148, 163, 179, 191, 206, -1]
+    },
+    {
+        "id": 70164,
+        "file_name": "Resignations and Terminations - Legal",
+        "file_path": "resources/audio/70164.mp3",
+        "breakpoints": [24, 40, 55, 76, 91, 107, 124, 143, 156, 173, 186, 203, 223, 240, -1]
+    },
+    {
+        "id": 70165,
+        "file_name": "Working Holiday Visa Inquiry - Immigration",
+        "file_path": "resources/audio/70165.mp3",
+        "breakpoints": [24, 33, 44, 58, 73, 88, 101, 114, 128, 141, 158, 176, 193, 204, -1]
+    },
+    {
         "id": 70166,
         "file_name": "Fundraising Event Planning - Social + Business",
         "file_path": "resources/audio/70166.mp3",
