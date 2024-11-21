@@ -1,5 +1,11 @@
 # Changelog of Hotaru
 
+## 1.0.1 (November 17, 2024)
+
+### CLI Tool
+
+### GUI @ PC
+
 ## 0.0.1 (November 14, 2024)
 
 ### CLI Tool
