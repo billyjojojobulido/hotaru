@@ -38,7 +38,7 @@ As time goes by, there will be more and more exam recordings worth practicing, u
 
 **Please don't blame them for this**, as Hotaru advocates a free development environment, it is perfectly legitimate for some developers to choose not to contribute any more after they passes the CCL exam themselves, which is also worth congratulating 🎉.
 
-**Luckily, we have you!** It is not a difficult task and does not require any expertise to create audio sample information. All you need is to be familiar with the CCL exam process and have a audio player. There will be more instructions on how to create audio sample.
+**Luckily, we have you!** It is not a difficult task and does not require any expertise to create audio sample information. All you need is to be familiar with the CCL exam process and have an audio player. There will be more instructions on how to create audio sample.
 
 After you created your own audio sample information, you can added it to the audio_config.json file and create a pull request to contribute, our maintainer will review and test your modification and merge it to `main` if there is no issue with it.
 
