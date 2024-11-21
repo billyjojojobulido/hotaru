@@ -4,6 +4,9 @@
 
 ### CLI Tool
 
+- Still Available
+- More audio source (4/168)
+
 ### GUI @ PC
 
 ## 0.0.1 (November 14, 2024)
