@@ -4,4 +4,8 @@
 
 ### CLI Tool
 
+- Initial public release
+- Minimal Viable Product on Cli
+- Only one audio sample available
+
 ### core features
