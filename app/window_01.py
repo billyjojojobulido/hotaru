@@ -115,7 +115,7 @@ class App(customtkinter.CTk):
         # self.optionmenu_1.set("CTkOptionmenu")
         # self.textbox.insert("0.0", "")
 
-
+    #region 初始化GUI相关
     def _init_audio_option_menu(self):
         config_data = get_config_file()
         options = [str(x["id"]) + " " + x["file_name"] for x in config_data] if config_data else []
@@ -126,7 +126,9 @@ class App(customtkinter.CTk):
         else:
             combobox.set("-- Empty --")
         return combobox
+    #endregion
 
+    #region 播放功能相关
     def start_engine(self):
         audio_id_str = self.combobox_1.get()
         try:
@@ -144,10 +146,6 @@ class App(customtkinter.CTk):
         except Exception as e:
             self._audio_indicate_user("-- 机经无法播放: {} --".format(repr(e)))
 
-    def _on_click_auto_play(self):
-        self._auto_play = not self._auto_play
-        print(self._auto_play)
-
     def _play(self):
         if self.engine is None:
             self._audio_indicate_user("-- 还没加载音频文件 --")
@@ -162,13 +160,26 @@ class App(customtkinter.CTk):
         if self.engine.is_tail():
             self._textbox_add(">> 播放结束, 点击'下一个'按钮重播\n")
 
+
     def _next(self):
         if self.engine is None:
             self._audio_indicate_user("-- 还没加载音频文件 --")
             return
         self.engine = self.engine.next()
         self._console_log_next(self.engine.get_section_id())
+
+    #endregion
+
+
+    #region 设置面板相关函数
+    def _on_click_auto_play(self):
+        self._auto_play = not self._auto_play
+        print(self._auto_play)
+
+    #endregion 
         
+
+    #region GUI文字更新相关函数
     def _console_log_next(self, sec_id: int):
         if sec_id == 0:
             self._textbox_add(">> 当前对话: Briefing\n")
@@ -183,6 +194,7 @@ class App(customtkinter.CTk):
     def _textbox_add(self, txt:str):
         self.textbox.insert("0.0", txt)
         self.textbox_index += 1
+    #endregion
 
     # @deprecated
     @DeprecationWarning
