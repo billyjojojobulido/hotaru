@@ -69,6 +69,21 @@ class App(customtkinter.CTk):
                                                            command=self._next)
         self.next_button.grid(row=6, column=0, padx=20, pady=(10, 5))
 
+        # 设置面板
+
+        self.setting_frame = customtkinter.CTkFrame(self)
+        self.setting_frame.grid(row=2, column=1, padx=(20, 20), pady=(20, 10), sticky="nsew")
+        # self.radio_var = tkinter.IntVar(value=0)
+        # self.label_setting_group = customtkinter.CTkLabel(master=self.setting_frame, text="设置面板")
+        # self.label_setting_group.grid(row=0, column=2, columnspan=1, padx=10, pady=10, sticky="")
+        # self.radio_button_1 = customtkinter.CTkRadioButton(master=self.setting_frame, variable=self.radio_var, value=0)
+        # self.radio_button_1.grid(row=1, column=2, pady=10, padx=20, sticky="n")
+        # self.radio_button_2 = customtkinter.CTkRadioButton(master=self.setting_frame, variable=self.radio_var, value=1)
+        # self.radio_button_2.grid(row=2, column=2, pady=10, padx=20, sticky="n")
+        # self.radio_button_3 = customtkinter.CTkRadioButton(master=self.setting_frame, variable=self.radio_var, value=2)
+        # self.radio_button_3.grid(row=3, column=2, pady=10, padx=20, sticky="n")
+
+
         # create slider and progressbar frame
         self.slider_progressbar_frame = customtkinter.CTkFrame(self, fg_color="transparent")
         self.slider_progressbar_frame.grid(row=1, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
