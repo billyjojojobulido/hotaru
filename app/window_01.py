@@ -20,7 +20,7 @@ class App(customtkinter.CTk):
         ### UI部分 ###
         ################
         # configure window
-        self.title("Hotaru - v1.0.1")
+        self.title("Hotaru - v1.0.2")
         # self.geometry(f"{800}x{640}")
 
         self.geometry(f"{640}x{480}")
@@ -74,8 +74,8 @@ class App(customtkinter.CTk):
         self.setting_frame = customtkinter.CTkFrame(self)
         self.setting_frame.grid(row=2, column=1, padx=(20, 20), pady=(20, 10), sticky="nsew")
         # self.radio_var = tkinter.IntVar(value=0)
-        # self.label_setting_group = customtkinter.CTkLabel(master=self.setting_frame, text="设置面板")
-        # self.label_setting_group.grid(row=0, column=2, columnspan=1, padx=10, pady=10, sticky="")
+        self.label_setting_group = customtkinter.CTkLabel(master=self.setting_frame, text="设置面板")
+        self.label_setting_group.grid(row=0, column=2, columnspan=1, padx=10, pady=10, sticky="")
         # self.radio_button_1 = customtkinter.CTkRadioButton(master=self.setting_frame, variable=self.radio_var, value=0)
         # self.radio_button_1.grid(row=1, column=2, pady=10, padx=20, sticky="n")
         # self.radio_button_2 = customtkinter.CTkRadioButton(master=self.setting_frame, variable=self.radio_var, value=1)
