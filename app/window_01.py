@@ -25,7 +25,10 @@ class App(customtkinter.CTk):
 
         self.geometry(f"{720}x{480}")
 
-        self.textbox_index = 0
+        ################
+        ### 变量部分 ###
+        ################
+        self._auto_play = False
 
         # configure grid layout (4x4)
         self.grid_columnconfigure(0, weight=3)
@@ -73,11 +76,11 @@ class App(customtkinter.CTk):
         self.setting_frame = customtkinter.CTkFrame(self)
         self.setting_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
         self.setting_frame.grid(row=2, column=1, padx=(20, 20), pady=(20, 10), sticky="nsew")
-        self.radio_var = tkinter.IntVar(value=0)
+        # self.radio_var = tkinter.IntVar(value=0)
         self.label_setting_group = customtkinter.CTkLabel(master=self.setting_frame, text="设置面板", font=("Helvetica", 16, "bold"))
         self.label_setting_group.grid(row=0, column=0, padx=10, pady=5)
 
-        self.auto_play = customtkinter.CTkSwitch(master=self.setting_frame, text="点击下一个时自动播放")
+        self.auto_play = customtkinter.CTkSwitch(master=self.setting_frame, text="点击下一个时自动播放", command=self._on_click_auto_play)
         self.auto_play.grid(row=1, column=0, padx=20, pady=10)
 
         # self.radio_button_2 = customtkinter.CTkRadioButton(master=self.setting_frame, variable=self.radio_var, value=1)
@@ -140,7 +143,10 @@ class App(customtkinter.CTk):
             self._audio_indicate_user("-- 该机经音频不存在 --")
         except Exception as e:
             self._audio_indicate_user("-- 机经无法播放: {} --".format(repr(e)))
-            
+
+    def _on_click_auto_play(self):
+        self._auto_play = not self._auto_play
+        print(self._auto_play)
 
     def _play(self):
         if self.engine is None:
