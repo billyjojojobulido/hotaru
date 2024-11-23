@@ -89,6 +89,7 @@ class App(customtkinter.CTk):
         self.auto_play.grid(row=1, column=0, padx=20, pady=10)
 
         self.turbo = customtkinter.CTkSwitch(master=self.setting_frame, text="挑战模式: 1.5倍速播放", command=self._on_click_turbo)
+        self.turbo.configure(state="disabled")
         self.turbo.grid(row=2, column=0, padx=20, pady=10)
 
         # self.radio_button_2 = customtkinter.CTkRadioButton(master=self.setting_frame, variable=self.radio_var, value=1)
