@@ -47,26 +47,29 @@ class App(customtkinter.CTk):
         self.textbox.grid(row=0, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
 
         # create tabview
-        self.audio_frame = customtkinter.CTkScrollableFrame(self, label_text="音频控制台")
-        self.audio_frame.grid(row=0, column=1, rowspan=2, padx=(20, 20), pady=(20, 20), sticky="nsew")
+        self.audio_frame = customtkinter.CTkFrame(self)
+        self.audio_frame.grid(row=0, column=1, rowspan=2, padx=(20, 20), pady=(20, 10), sticky="nsew")
         self.audio_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
 
+        self.label_audio_group = customtkinter.CTkLabel(master=self.audio_frame, text="音频控制台", font=("Helvetica", 16, "bold"))
+        self.label_audio_group.grid(row=0, column=0, padx=10, pady=5)
+
         # 选择音频菜单
-        customtkinter.CTkLabel(self.audio_frame, text="请选择机经序号").grid(row=0, column=0, padx=20, pady=(10, 10))
+        customtkinter.CTkLabel(self.audio_frame, text="请选择机经序号" ).grid(row=1, column=0, padx=20)
 
         self.combobox_1 = self._init_audio_option_menu()
-        self.combobox_1.grid(row=1, column=0, padx=20, pady=(5, 5))
+        self.combobox_1.grid(row=2, column=0, padx=20, pady=(5, 5))
 
         self.string_input_button = customtkinter.CTkButton(self.audio_frame, text="选择",
                                                            command=self.start_engine)
-        self.string_input_button.grid(row=2, column=0, padx=20, pady=(10, 10))
+        self.string_input_button.grid(row=3, column=0, padx=20, pady=(10, 10))
 
 
         self.audio_indicator = customtkinter.CTkLabel(self.audio_frame, text="-- 未选择音频 --")
-        self.audio_indicator.grid(row=3, column=0, padx=20, pady=(10, 10))
+        self.audio_indicator.grid(row=4, column=0, padx=20, pady=(10, 10))
 
         self.space_holder_1 =  customtkinter.CTkLabel(self.audio_frame, text=" ")
-        self.space_holder_1.grid(row=4, column=0, padx=20, pady=(10, 10))
+        self.space_holder_1.grid(row=5, column=0, padx=20, pady=(10, 10))
 
 
         self.play_button = customtkinter.CTkButton(self.audio_frame, text="播放",
@@ -80,7 +83,7 @@ class App(customtkinter.CTk):
         # 设置面板
         self.setting_frame = customtkinter.CTkFrame(self)
         self.setting_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
-        self.setting_frame.grid(row=2, column=1, padx=(20, 20), pady=(20, 10), sticky="nsew")
+        self.setting_frame.grid(row=2, column=1, padx=(20, 20), pady=(10, 20), sticky="nsew")
         # self.radio_var = tkinter.IntVar(value=0)
         self.label_setting_group = customtkinter.CTkLabel(master=self.setting_frame, text="设置面板", font=("Helvetica", 16, "bold"))
         self.label_setting_group.grid(row=0, column=0, padx=10, pady=5)
