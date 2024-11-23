@@ -8,6 +8,7 @@ from component.console import Console
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
 
+FONT_TITLE = ("Helvetica", 16, "bold")
 
 class App(customtkinter.CTk):
     def __init__(self):
@@ -58,7 +59,7 @@ class App(customtkinter.CTk):
         self.audio_frame.grid(row=0, column=1, rowspan=2, padx=(20, 20), pady=(20, 10), sticky="nsew")
         self.audio_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
 
-        self.label_audio_group = customtkinter.CTkLabel(master=self.audio_frame, text="音频控制台", font=("Helvetica", 16, "bold"))
+        self.label_audio_group = customtkinter.CTkLabel(master=self.audio_frame, text="音频控制台", font=FONT_TITLE)
         self.label_audio_group.grid(row=0, column=0, padx=10, pady=5)
 
         customtkinter.CTkLabel(self.audio_frame, text="请选择机经序号" ).grid(row=1, column=0, padx=20)
@@ -93,7 +94,7 @@ class App(customtkinter.CTk):
         self.setting_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
         self.setting_frame.grid(row=2, column=1, padx=(20, 20), pady=(10, 20), sticky="nsew")
         # self.radio_var = tkinter.IntVar(value=0)
-        self.label_setting_group = customtkinter.CTkLabel(master=self.setting_frame, text="设置面板", font=("Helvetica", 16, "bold"))
+        self.label_setting_group = customtkinter.CTkLabel(master=self.setting_frame, text="设置面板", font=FONT_TITLE)
         self.label_setting_group.grid(row=0, column=0, padx=10, pady=5)
 
         self.auto_play = customtkinter.CTkSwitch(master=self.setting_frame, text="点击下一个时自动播放", command=self._on_click_auto_play)
