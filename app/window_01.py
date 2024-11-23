@@ -43,7 +43,7 @@ class App(customtkinter.CTk):
         # self.grid_rowconfigure((0, 1, 2), weight=1)
         self.grid_rowconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=1)
-        
+
 
         #region 显示器部分GUI
         self.textbox = customtkinter.CTkTextbox(self)
@@ -101,9 +101,9 @@ class App(customtkinter.CTk):
         self.turbo.configure(state="disabled")
         self.turbo.grid(row=2, column=0, padx=20, pady=10)
 
-        self.count_down = customtkinter.CTkSwitch(master=self.setting_frame, text="播放结束后五秒倒计时", command=self._on_click_count_down)
-        self.count_down.configure(state="disabled")
-        self.count_down.grid(row=3, column=0, padx=20, pady=10)
+        # self.count_down = customtkinter.CTkSwitch(master=self.setting_frame, text="播放结束后五秒倒计时", command=self._on_click_count_down)
+        # self.count_down.configure(state="disabled")
+        # self.count_down.grid(row=3, column=0, padx=20, pady=10)
         #endregion
 
 
@@ -186,6 +186,8 @@ class App(customtkinter.CTk):
             return
         self.engine = self.engine.next()
         self._console_log_next(self.engine.get_section_id())
+        if self._auto_play_enabled:
+            self._play()
 
     #endregion
 
