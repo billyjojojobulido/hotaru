@@ -33,6 +33,7 @@ class App(customtkinter.CTk):
         ################
         self._auto_play = False
         self._turbo = False
+        self.textbox_index = 0
         #endregion
 
         # configure grid layout (4x4)

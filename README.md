@@ -4,11 +4,12 @@
   <img src="https://img.shields.io/badge/Python-3.9-green.svg">
   <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg">
   <img src="https://img.shields.io/badge/PRs-welcome-orange.svg">
+  <img src="https://img.shields.io/badge/Dev-In_Progerss-lightgreen.svg">
 </p>
 
 ## Project Status
 
-🎉 Viable Product Available Now ｜  🚧 Work In Progress
+🎉 Viable Product Available Now ｜ 🚧 Work In Progress
 
 ## Project Background
 
@@ -17,6 +18,7 @@ Hotaru **ほたる** : Japanese word for firefly, which means that this applicat
 ## Project Environment
 
 **Base Dev Environment**
+
 - MacOS
 - Python3
 
@@ -35,14 +37,17 @@ Hotaru **ほたる** : Japanese word for firefly, which means that this applicat
 - 🚧 V4: Extends to Mobile application. (Maybe?)
 
 ## Contributing
+
 We are grateful to the community for contributing bugfixes and improvements of the product, as well as the contribution in providing more audio samples, whih is an extremely time-consuming work. Read below to learn how you can take part in improving Hotaru"
 
 ### Code of Conduct
+
 Hotaru has adopted a Code of Conduct that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.
 
 **TODO**
 
 ### Contributing Guide
+
 Read our contributing guide to learn about our development process, how to propose bugfixes and improvements, and how to create, test, and contribute your own audio samples.
 
 [CONTRIBUTING.md](https://github.com/billyjojojobulido/hotaru/blob/main/CONTRIBUTING.md)
