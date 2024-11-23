@@ -31,8 +31,9 @@ class App(customtkinter.CTk):
         ################
         #region 变量部分 ###
         ################
-        self._auto_play = False
-        self._turbo = False
+        self._auto_play_enabled = False
+        self._turbo_enabled = False
+        self._count_down_enabled = False
         self.textbox_index = 0
         #endregion
 
@@ -95,6 +96,10 @@ class App(customtkinter.CTk):
         self.turbo = customtkinter.CTkSwitch(master=self.setting_frame, text="挑战模式: 1.5倍速播放", command=self._on_click_turbo)
         self.turbo.configure(state="disabled")
         self.turbo.grid(row=2, column=0, padx=20, pady=10)
+
+        self.count_down = customtkinter.CTkSwitch(master=self.setting_frame, text="播放结束后五秒倒计时", command=self._on_click_count_down)
+        self.count_down.configure(state="disabled")
+        self.count_down.grid(row=3, column=0, padx=20, pady=10)
 
         # self.radio_button_2 = customtkinter.CTkRadioButton(master=self.setting_frame, variable=self.radio_var, value=1)
         # self.radio_button_2.grid(row=2, column=2, pady=10, padx=20, sticky="n")
@@ -186,10 +191,13 @@ class App(customtkinter.CTk):
 
     #region 设置面板相关函数
     def _on_click_auto_play(self):
-        self._auto_play = not self._auto_play
+        self._auto_play_enabled = not self._auto_play_enabled
 
     def _on_click_turbo(self):
-        self._turbo = not self._turbo
+        self._turbo_enabled = not self._turbo_enabled
+    
+    def _on_click_count_down(self):
+        self._count_down_enabled = not self._count_down_enabled
 
     #endregion 
         
