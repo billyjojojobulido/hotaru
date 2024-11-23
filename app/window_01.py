@@ -43,12 +43,15 @@ class App(customtkinter.CTk):
         # self.grid_rowconfigure((0, 1, 2), weight=1)
         self.grid_rowconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=1)
+        
 
-        # create textbox
+        #region 显示器部分GUI
         self.textbox = customtkinter.CTkTextbox(self)
         self.textbox.grid(row=0, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
+        #endregion
 
-        # create tabview
+
+        #region 选择音频菜单GUI
         self.audio_frame = customtkinter.CTkFrame(self)
         self.audio_frame.grid(row=0, column=1, rowspan=2, padx=(20, 20), pady=(20, 10), sticky="nsew")
         self.audio_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
@@ -56,7 +59,6 @@ class App(customtkinter.CTk):
         self.label_audio_group = customtkinter.CTkLabel(master=self.audio_frame, text="音频控制台", font=("Helvetica", 16, "bold"))
         self.label_audio_group.grid(row=0, column=0, padx=10, pady=5)
 
-        # 选择音频菜单
         customtkinter.CTkLabel(self.audio_frame, text="请选择机经序号" ).grid(row=1, column=0, padx=20)
 
         self.combobox_1 = self._init_audio_option_menu()
@@ -81,8 +83,10 @@ class App(customtkinter.CTk):
         self.next_button = customtkinter.CTkButton(self.audio_frame, text="下一个",
                                                            command=self._next)
         self.next_button.grid(row=6, column=0, padx=20, pady=(10, 5))
+        #endregion
 
-        # 设置面板
+
+        #region 设置面板GUI
         self.setting_frame = customtkinter.CTkFrame(self)
         self.setting_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
         self.setting_frame.grid(row=2, column=1, padx=(20, 20), pady=(10, 20), sticky="nsew")
@@ -100,20 +104,17 @@ class App(customtkinter.CTk):
         self.count_down = customtkinter.CTkSwitch(master=self.setting_frame, text="播放结束后五秒倒计时", command=self._on_click_count_down)
         self.count_down.configure(state="disabled")
         self.count_down.grid(row=3, column=0, padx=20, pady=10)
-
-        # self.radio_button_2 = customtkinter.CTkRadioButton(master=self.setting_frame, variable=self.radio_var, value=1)
-        # self.radio_button_2.grid(row=2, column=2, pady=10, padx=20, sticky="n")
-        # self.radio_button_3 = customtkinter.CTkRadioButton(master=self.setting_frame, variable=self.radio_var, value=2)
-        # self.radio_button_3.grid(row=3, column=2, pady=10, padx=20, sticky="n")
+        #endregion
 
 
-        # create slider and progressbar frame
+        #region 进度条面板GUI
         self.slider_progressbar_frame = customtkinter.CTkFrame(self, fg_color="transparent")
         self.slider_progressbar_frame.grid(row=1, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
         self.slider_progressbar_frame.grid_columnconfigure(0, weight=1)
         self.slider_progressbar_frame.grid_rowconfigure(4, weight=1)
         self.progressbar_2 = customtkinter.CTkProgressBar(self.slider_progressbar_frame)
         self.progressbar_2.grid(row=2, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
+        #endregion
 
         # create scrollable frame
         # self.scrollable_frame = customtkinter.CTkScrollableFrame(self, label_text="CTkScrollableFrame")
