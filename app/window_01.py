@@ -40,15 +40,14 @@ class App(customtkinter.CTk):
         #endregion
 
         # configure grid layout (4x4)
-        self.grid_columnconfigure(0, weight=3)
-        self.grid_columnconfigure(1, weight=2)
+        self.grid_columnconfigure(0, weight=2)
+        self.grid_columnconfigure(1, weight=1)
         # self.grid_rowconfigure((0, 1, 2), weight=1)
         self.grid_rowconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=1)
 
 
         #region 显示器部分GUI
-        # self.textbox = customtkinter.CTkTextbox(self)
         self.textbox = Console(self)
         self.textbox.grid(row=0, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
         #endregion
@@ -142,7 +141,7 @@ class App(customtkinter.CTk):
         config_data = get_config_file()
         options = [str(x["id"]) + " " + x["file_name"] for x in config_data] if config_data else []
         combobox = customtkinter.CTkOptionMenu(self.audio_frame, dynamic_resizing=False, 
-                                           values=options, width=200)
+                                           values=options)
         if options is not None and len(options) > 0:
             combobox.set(options[0])
         else:
@@ -173,14 +172,9 @@ class App(customtkinter.CTk):
             self._audio_indicate_user("-- 还没加载音频文件 --")
             return
     
-        # if self.engine.get_section_id() == 0:
-        #     self._textbox_add(">> 开始播放 Briefing\n")
-        # else:
-        #     self._textbox_add(">> 开始播放 Dialogue: {}\n".format(self.engine.get_section_id()))
-        
         self.engine.play_audio()
         if self.engine.is_tail():
-            self._textbox_add(">> 播放结束, 点击'下一个'按钮重播\n")
+            self.textbox.console_log("播放结束, 点击'下一个'按钮重播")
 
 
     def _next(self):
@@ -188,8 +182,7 @@ class App(customtkinter.CTk):
             self._audio_indicate_user("-- 还没加载音频文件 --")
             return
         self.engine = self.engine.next()
-        # self._console_log_next(self.engine.get_section_id())
-        self.textbox.console_log_error("Hello World")
+        self._console_log_next(self.engine.get_section_id())
         if self._auto_play_enabled:
             self._play()
 
@@ -211,24 +204,16 @@ class App(customtkinter.CTk):
 
     #region GUI文字更新 + console输出相关函数
 
-    def _console_log(self, txt: str):
-        self.textbox.insert('end', "\n%s [%s] %s" % (time.strftime('%Y-%m-%d %H:%M:%S'), "[INFO]", txt))
-        self.textbox.update()
-
     def _console_log_next(self, sec_id: int):
         if sec_id == 0:
-            self._textbox_add(">> 当前对话: Briefing\n")
+            self.textbox.console_log("当前对话: Briefing\n")
         else:
-            self._textbox_add(">> 当前对话: Dialogue: {}\n".format(sec_id))
+            self.textbox.console_log("当前对话: Dialogue: {}\n".format(sec_id))
 
     ## 用来更新 "音频控制面板" 的提示文字
     def _audio_indicate_user(self, txt: str):
         self.audio_indicator.configure(text=txt)
 
-
-    def _textbox_add(self, txt:str):
-        self.textbox.insert("0.0", txt)
-        self.textbox_index += 1
     #endregion
 
     # @deprecated
