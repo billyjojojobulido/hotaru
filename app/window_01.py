@@ -1,7 +1,9 @@
+import time
 import tkinter
 import tkinter.messagebox
 import customtkinter
 from audio_manager.utils import get_config_file, construct_audio_loop, _test_audio_loop
+from component.console import Console
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -46,7 +48,8 @@ class App(customtkinter.CTk):
 
 
         #region 显示器部分GUI
-        self.textbox = customtkinter.CTkTextbox(self)
+        # self.textbox = customtkinter.CTkTextbox(self)
+        self.textbox = Console(self)
         self.textbox.grid(row=0, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
         #endregion
 
@@ -205,7 +208,12 @@ class App(customtkinter.CTk):
     #endregion 
         
 
-    #region GUI文字更新相关函数
+    #region GUI文字更新 + console输出相关函数
+
+    def _console_log(self, txt: str):
+        self.textbox.insert('end', "\n%s [%s] %s" % (time.strftime('%Y-%m-%d %H:%M:%S')))
+        self.textbox.update()
+
     def _console_log_next(self, sec_id: int):
         if sec_id == 0:
             self._textbox_add(">> 当前对话: Briefing\n")
