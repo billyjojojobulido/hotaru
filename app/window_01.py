@@ -1,11 +1,14 @@
+import time
 import tkinter
 import tkinter.messagebox
 import customtkinter
 from audio_manager.utils import get_config_file, construct_audio_loop, _test_audio_loop
+from component.console import Console
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
 
+FONT_TITLE = ("Helvetica", 16, "bold")
 
 class App(customtkinter.CTk):
     def __init__(self):
@@ -38,15 +41,15 @@ class App(customtkinter.CTk):
         #endregion
 
         # configure grid layout (4x4)
-        self.grid_columnconfigure(0, weight=3)
-        self.grid_columnconfigure(1, weight=2)
+        self.grid_columnconfigure(0, weight=2)
+        self.grid_columnconfigure(1, weight=1)
         # self.grid_rowconfigure((0, 1, 2), weight=1)
         self.grid_rowconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=1)
 
 
         #region 显示器部分GUI
-        self.textbox = customtkinter.CTkTextbox(self)
+        self.textbox = Console(self)
         self.textbox.grid(row=0, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
         #endregion
 
@@ -56,7 +59,7 @@ class App(customtkinter.CTk):
         self.audio_frame.grid(row=0, column=1, rowspan=2, padx=(20, 20), pady=(20, 10), sticky="nsew")
         self.audio_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
 
-        self.label_audio_group = customtkinter.CTkLabel(master=self.audio_frame, text="音频控制台", font=("Helvetica", 16, "bold"))
+        self.label_audio_group = customtkinter.CTkLabel(master=self.audio_frame, text="音频控制台", font=FONT_TITLE)
         self.label_audio_group.grid(row=0, column=0, padx=10, pady=5)
 
         customtkinter.CTkLabel(self.audio_frame, text="请选择机经序号" ).grid(row=1, column=0, padx=20)
@@ -91,7 +94,7 @@ class App(customtkinter.CTk):
         self.setting_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
         self.setting_frame.grid(row=2, column=1, padx=(20, 20), pady=(10, 20), sticky="nsew")
         # self.radio_var = tkinter.IntVar(value=0)
-        self.label_setting_group = customtkinter.CTkLabel(master=self.setting_frame, text="设置面板", font=("Helvetica", 16, "bold"))
+        self.label_setting_group = customtkinter.CTkLabel(master=self.setting_frame, text="设置面板", font=FONT_TITLE)
         self.label_setting_group.grid(row=0, column=0, padx=10, pady=5)
 
         self.auto_play = customtkinter.CTkSwitch(master=self.setting_frame, text="点击下一个时自动播放", command=self._on_click_auto_play)
@@ -139,7 +142,7 @@ class App(customtkinter.CTk):
         config_data = get_config_file()
         options = [str(x["id"]) + " " + x["file_name"] for x in config_data] if config_data else []
         combobox = customtkinter.CTkOptionMenu(self.audio_frame, dynamic_resizing=False, 
-                                           values=options, width=200)
+                                           values=options)
         if options is not None and len(options) > 0:
             combobox.set(options[0])
         else:
@@ -170,14 +173,9 @@ class App(customtkinter.CTk):
             self._audio_indicate_user("-- 还没加载音频文件 --")
             return
     
-        # if self.engine.get_section_id() == 0:
-        #     self._textbox_add(">> 开始播放 Briefing\n")
-        # else:
-        #     self._textbox_add(">> 开始播放 Dialogue: {}\n".format(self.engine.get_section_id()))
-        
         self.engine.play_audio()
         if self.engine.is_tail():
-            self._textbox_add(">> 播放结束, 点击'下一个'按钮重播\n")
+            self.textbox.console_log("播放结束, 点击'下一个'按钮重播")
 
 
     def _next(self):
@@ -205,21 +203,18 @@ class App(customtkinter.CTk):
     #endregion 
         
 
-    #region GUI文字更新相关函数
+    #region GUI文字更新 + console输出相关函数
+
     def _console_log_next(self, sec_id: int):
         if sec_id == 0:
-            self._textbox_add(">> 当前对话: Briefing\n")
+            self.textbox.console_log("当前对话: Briefing\n")
         else:
-            self._textbox_add(">> 当前对话: Dialogue: {}\n".format(sec_id))
+            self.textbox.console_log("当前对话: Dialogue: {}\n".format(sec_id))
 
     ## 用来更新 "音频控制面板" 的提示文字
     def _audio_indicate_user(self, txt: str):
         self.audio_indicator.configure(text=txt)
 
-
-    def _textbox_add(self, txt:str):
-        self.textbox.insert("0.0", txt)
-        self.textbox_index += 1
     #endregion
 
     # @deprecated
