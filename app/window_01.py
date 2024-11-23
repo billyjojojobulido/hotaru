@@ -188,7 +188,8 @@ class App(customtkinter.CTk):
             self._audio_indicate_user("-- 还没加载音频文件 --")
             return
         self.engine = self.engine.next()
-        self._console_log_next(self.engine.get_section_id())
+        # self._console_log_next(self.engine.get_section_id())
+        self.textbox.console_log_error("Hello World")
         if self._auto_play_enabled:
             self._play()
 
@@ -211,7 +212,7 @@ class App(customtkinter.CTk):
     #region GUI文字更新 + console输出相关函数
 
     def _console_log(self, txt: str):
-        self.textbox.insert('end', "\n%s [%s] %s" % (time.strftime('%Y-%m-%d %H:%M:%S')))
+        self.textbox.insert('end', "\n%s [%s] %s" % (time.strftime('%Y-%m-%d %H:%M:%S'), "[INFO]", txt))
         self.textbox.update()
 
     def _console_log_next(self, sec_id: int):
