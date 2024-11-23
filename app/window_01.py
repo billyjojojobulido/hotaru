@@ -12,23 +12,28 @@ class App(customtkinter.CTk):
         super().__init__()
 
         ################
-        ### 服务端部分 ###
+        #region 服务端部分 ###
         ################
         self.engine = None
+        #endregion
+
 
         ################
-        ### UI部分 ###
+        #region UI部分 ###
         ################
         # configure window
         self.title("Hotaru - v1.0.2")
         # self.geometry(f"{800}x{640}")
 
         self.geometry(f"{720}x{480}")
+        #endregion
 
         ################
-        ### 变量部分 ###
+        #region 变量部分 ###
         ################
         self._auto_play = False
+        self._turbo = False
+        #endregion
 
         # configure grid layout (4x4)
         self.grid_columnconfigure(0, weight=3)
@@ -82,6 +87,9 @@ class App(customtkinter.CTk):
 
         self.auto_play = customtkinter.CTkSwitch(master=self.setting_frame, text="点击下一个时自动播放", command=self._on_click_auto_play)
         self.auto_play.grid(row=1, column=0, padx=20, pady=10)
+
+        self.turbo = customtkinter.CTkSwitch(master=self.setting_frame, text="挑战模式: 1.5倍速播放", command=self._on_click_turbo)
+        self.turbo.grid(row=2, column=0, padx=20, pady=10)
 
         # self.radio_button_2 = customtkinter.CTkRadioButton(master=self.setting_frame, variable=self.radio_var, value=1)
         # self.radio_button_2.grid(row=2, column=2, pady=10, padx=20, sticky="n")
@@ -174,7 +182,9 @@ class App(customtkinter.CTk):
     #region 设置面板相关函数
     def _on_click_auto_play(self):
         self._auto_play = not self._auto_play
-        print(self._auto_play)
+
+    def _on_click_turbo(self):
+        self._turbo = not self._turbo
 
     #endregion 
         
@@ -186,7 +196,7 @@ class App(customtkinter.CTk):
         else:
             self._textbox_add(">> 当前对话: Dialogue: {}\n".format(sec_id))
 
-    # 用来更新 "音频控制面板" 的提示文字
+    ## 用来更新 "音频控制面板" 的提示文字
     def _audio_indicate_user(self, txt: str):
         self.audio_indicator.configure(text=txt)
 
