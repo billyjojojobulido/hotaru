@@ -9,6 +9,7 @@ class Console(customtkinter.CTkTextbox):
         super().__init__(root, font=FONT)
         self.tag_config("err", foreground="red")
         self.tag_config("info", foreground="black")
+        self.tag_config("dev", foreground="grey")
         self._lock()
     
     def _lock(self):
@@ -34,3 +35,11 @@ class Console(customtkinter.CTkTextbox):
         super().insert('end', "\n%s [%s] %s" % (time.strftime('%Y-%m-%d %H:%M:%S'), "ERROR", err), "err")
         super().update()
         self._unlock()
+
+    def console_log_dev(self, msg: str):
+        if not msg or len(msg) == 0:
+            return
+        self._unlock()
+        super().insert('end', "\n%s [%s] %s" % (time.strftime('%Y-%m-%d %H:%M:%S'), "DEV", msg), "dev")
+        super().update()
+        self._lock()

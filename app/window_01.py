@@ -1,6 +1,3 @@
-import time
-import tkinter
-import tkinter.messagebox
 import customtkinter
 from audio_manager.utils import get_config_file, construct_audio_loop, _test_audio_loop
 from component.console import Console
@@ -157,7 +154,6 @@ class App(customtkinter.CTk):
             id = int(audio_id_str[:5])
             _test_audio_loop(id)
             audio_loop = construct_audio_loop(id)
-            print(audio_loop)
             if not audio_loop.next().is_valid() :
                 self.textbox.console_log_error("该机经音频不存在")
                 return
