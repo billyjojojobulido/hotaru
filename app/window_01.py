@@ -157,20 +157,24 @@ class App(customtkinter.CTk):
             id = int(audio_id_str[:5])
             _test_audio_loop(id)
             audio_loop = construct_audio_loop(id)
-            if audio_loop is None or audio_loop.next is None:
-                print("A")
-                self._audio_indicate_user("-- 该机经音频不存在 --")
+            print(audio_loop)
+            if not audio_loop.next().is_valid() :
+                self.textbox.console_log_error("该机经音频不存在")
                 return
             self.engine = audio_loop.next()
-            self._audio_indicate_user("-- 机经加载完毕 --")
+            # self._audio_indicate_user("-- 机经加载完毕 --")
+            self.textbox.console_log("机经加载完毕")
         except FileNotFoundError:
-            self._audio_indicate_user("-- 该机经音频不存在 --")
+            # self._audio_indicate_user("-- 该机经音频不存在 --")
+            self.textbox.console_log_error("该机经音频不存在")
         except Exception as e:
-            self._audio_indicate_user("-- 机经无法播放: {} --".format(repr(e)))
+            # self._audio_indicate_user("-- 机经无法播放: {} --".format(repr(e)))
+            self.textbox.console_log_error("机经无法播放: {} --".format(repr(e)))
 
     def _play(self):
         if self.engine is None:
-            self._audio_indicate_user("-- 还没加载音频文件 --")
+            # self._audio_indicate_user("-- 还没加载音频文件 --")
+            self.textbox.console_log_error("未加载音频文件")
             return
     
         self.engine.play_audio()
@@ -180,7 +184,8 @@ class App(customtkinter.CTk):
 
     def _next(self):
         if self.engine is None:
-            self._audio_indicate_user("-- 还没加载音频文件 --")
+            # self._audio_indicate_user("-- 还没加载音频文件 --")
+            self.textbox.console_log_error("未加载音频文件")
             return
         self.engine = self.engine.next()
         self._console_log_next(self.engine.get_section_id())
@@ -207,9 +212,9 @@ class App(customtkinter.CTk):
 
     def _console_log_next(self, sec_id: int):
         if sec_id == 0:
-            self.textbox.console_log("当前对话: Briefing\n")
+            self.textbox.console_log("当前对话: Briefing")
         else:
-            self.textbox.console_log("当前对话: Dialogue: {}\n".format(sec_id))
+            self.textbox.console_log("当前对话: Dialogue: {}".format(sec_id))
 
     ## 用来更新 "音频控制面板" 的提示文字
     def _audio_indicate_user(self, txt: str):
