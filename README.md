@@ -44,7 +44,7 @@ We are grateful to the community for contributing bugfixes and improvements of t
 
 Hotaru has adopted a Code of Conduct that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.
 
-**TODO**
+[CODE_OF_CONDUCT.md](https://github.com/billyjojojobulido/hotaru/blob/main/CODE_OF_CONDUCT.md)
 
 ### Contributing Guide
 
