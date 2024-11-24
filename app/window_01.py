@@ -1,6 +1,3 @@
-import time
-import tkinter
-import tkinter.messagebox
 import customtkinter
 from audio_manager.utils import get_config_file, construct_audio_loop, _test_audio_loop
 from component.console import Console
