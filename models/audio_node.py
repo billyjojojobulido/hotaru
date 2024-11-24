@@ -31,3 +31,6 @@ class AudioSegmentNode:
     def get_section_id(self):
         return self._ord
     
+    def is_valid(self):
+        return self._audio_seg is not None
+    

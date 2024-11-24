@@ -157,16 +157,19 @@ class App(customtkinter.CTk):
             id = int(audio_id_str[:5])
             _test_audio_loop(id)
             audio_loop = construct_audio_loop(id)
-            if audio_loop is None or audio_loop.next is None:
-                print("A")
+            print(audio_loop)
+            if not audio_loop.next().is_valid() :
                 self._audio_indicate_user("-- 该机经音频不存在 --")
+                self.textbox.console_log_error("该机经音频不存在")
                 return
             self.engine = audio_loop.next()
             self._audio_indicate_user("-- 机经加载完毕 --")
         except FileNotFoundError:
             self._audio_indicate_user("-- 该机经音频不存在 --")
+            self.textbox.console_log_error("该机经音频不存在")
         except Exception as e:
             self._audio_indicate_user("-- 机经无法播放: {} --".format(repr(e)))
+            self.textbox.console_log_error("机经无法播放: {} --".format(repr(e)))
 
     def _play(self):
         if self.engine is None:

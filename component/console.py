@@ -7,6 +7,8 @@ class Console(customtkinter.CTkTextbox):
 
     def __init__(self, root: customtkinter.CTk):
         super().__init__(root, font=FONT)
+        self.tag_config("err", foreground="red")
+        self.tag_config("info", foreground="black")
         self._lock()
     
     def _lock(self):
@@ -20,7 +22,8 @@ class Console(customtkinter.CTkTextbox):
         if not msg or len(msg) == 0:
             return
         self._unlock()
-        super().insert('end', "\n%s [%s] %s" % (time.strftime('%Y-%m-%d %H:%M:%S'), info_type, msg))
+        # super().configure(text_color="black")
+        super().insert('end', "\n%s [%s] %s" % (time.strftime('%Y-%m-%d %H:%M:%S'), info_type, msg), "info")
         super().update()
         self._lock()
 
@@ -29,7 +32,7 @@ class Console(customtkinter.CTkTextbox):
         if not err or len(err) == 0:
             return
         self._unlock()
-        super().configure(text_color="red")
-        super().insert('end', "\n%s [%s] %s" % (time.strftime('%Y-%m-%d %H:%M:%S'), err, "ERROR"))
+        # super().configure(text_color="red")
+        super().insert('end', "\n%s [%s] %s" % (time.strftime('%Y-%m-%d %H:%M:%S'), "ERROR", err), "err")
         super().update()
         self._unlock()
