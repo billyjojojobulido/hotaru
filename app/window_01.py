@@ -162,18 +162,14 @@ class App(customtkinter.CTk):
                 self.textbox.console_log_error("该机经音频不存在")
                 return
             self.engine = audio_loop.next()
-            # self._audio_indicate_user("-- 机经加载完毕 --")
             self.textbox.console_log("机经加载完毕")
         except FileNotFoundError:
-            # self._audio_indicate_user("-- 该机经音频不存在 --")
             self.textbox.console_log_error("该机经音频不存在")
         except Exception as e:
-            # self._audio_indicate_user("-- 机经无法播放: {} --".format(repr(e)))
             self.textbox.console_log_error("机经无法播放: {} --".format(repr(e)))
 
     def _play(self):
         if self.engine is None:
-            # self._audio_indicate_user("-- 还没加载音频文件 --")
             self.textbox.console_log_error("未加载音频文件")
             return
     
@@ -184,7 +180,6 @@ class App(customtkinter.CTk):
 
     def _next(self):
         if self.engine is None:
-            # self._audio_indicate_user("-- 还没加载音频文件 --")
             self.textbox.console_log_error("未加载音频文件")
             return
         self.engine = self.engine.next()
@@ -215,10 +210,6 @@ class App(customtkinter.CTk):
             self.textbox.console_log("当前对话: Briefing")
         else:
             self.textbox.console_log("当前对话: Dialogue: {}".format(sec_id))
-
-    ## 用来更新 "音频控制面板" 的提示文字
-    def _audio_indicate_user(self, txt: str):
-        self.audio_indicator.configure(text=txt)
 
     #endregion
 
