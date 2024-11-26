@@ -116,6 +116,12 @@ class App(customtkinter.CTk):
         self.progressbar_2.grid(row=2, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
         #endregion
 
+        #region 播放面板GUI
+        self.controller_frame = customtkinter.CTkFrame(self)
+        self.controller_frame.grid(row=2, column=0, padx=(20, 0), pady=(20, 20), sticky="nsew")
+        self.controller_frame.grid_columnconfigure(0, weight=1)
+        self.controller_frame.grid_rowconfigure(4, weight=1)
+
 
     #region 初始化GUI相关
     def _init_audio_option_menu(self):
