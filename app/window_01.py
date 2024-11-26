@@ -53,7 +53,7 @@ class App(customtkinter.CTk):
 
         #region 选择音频菜单GUI
         self.audio_frame = customtkinter.CTkFrame(self)
-        self.audio_frame.grid(row=0, column=1, rowspan=2, padx=(20, 10), pady=(20, 10), sticky="nsew")
+        self.audio_frame.grid(row=0, column=1, rowspan=2, padx=(20, 20), pady=(20, 10), sticky="nsew")
         self.audio_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
 
         self.label_audio_group = customtkinter.CTkLabel(master=self.audio_frame, text="音频控制台", font=FONT_TITLE)
@@ -99,24 +99,27 @@ class App(customtkinter.CTk):
 
         #region 播放面板GUI
         self.controller_frame = customtkinter.CTkFrame(self)
-        self.controller_frame.grid(row=2, column=0, padx=(20, 0), pady=(20, 20), sticky="nsew")
+        self.controller_frame.grid(row=2, column=0, padx=(20, 0), pady=(10, 20), sticky="nsew")
         self.controller_frame.grid_columnconfigure(0, weight=1)
         self.controller_frame.grid_columnconfigure(1, weight=1)
         self.controller_frame.grid_columnconfigure(2, weight=1)
         self.controller_frame.grid_columnconfigure(3, weight=1)
         self.controller_frame.grid_rowconfigure(2, weight=1)
+        
+        # self.count_down_label = customtkinter.CTkLabel(self.controller_frame, text="请在五秒内开始翻译...")
+        # self.count_down_label.grid(row=0, column=0, padx=(40, 0))
 
         self.count_down_bar = customtkinter.CTkProgressBar(self.controller_frame)
-        self.count_down_bar.grid(row=0, column=0, columnspan=4, padx=(40, 40), pady=(10, 10), sticky="ew")
+        self.count_down_bar.grid(row=1, column=0, columnspan=4, padx=(40, 40), pady=(10, 10), sticky="ew")
 
 
         self.play_button = customtkinter.CTkButton(self.controller_frame, text="播放",
                                                            command=self._play)
-        self.play_button.grid(row=1, column=1, padx=(20, 10),pady=(10, 10))
+        self.play_button.grid(row=2, column=1, padx=(20, 10),pady=(10, 10))
 
         self.next_button = customtkinter.CTkButton(self.controller_frame, text="下一个",
                                                            command=self._next)
-        self.next_button.grid(row=1, column=2, padx=(10, 20), pady=(10, 10))
+        self.next_button.grid(row=2, column=2, padx=(10, 20), pady=(10, 10))
         #endregion
 
 
