@@ -105,7 +105,7 @@ class App(customtkinter.CTk):
 
     #region 播放功能相关
     def start_engine(self):
-        audio_id_str = self.combobox_1.get()
+        audio_id_str = self.audio_frame.get_audio_id()
         try:
             id = int(audio_id_str[:5])
             audio_loop = construct_audio_loop(id)

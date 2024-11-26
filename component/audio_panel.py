@@ -40,3 +40,7 @@ class AudioPanel(customtkinter.CTkFrame):
             combobox.set("-- Empty --")
         return combobox
     #endregion
+
+
+    def get_audio_id(self):
+        return self.combobox_1.get()
