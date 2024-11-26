@@ -22,7 +22,7 @@ class App(customtkinter.CTk):
         #region UI部分 ###
         ################
         # configure window
-        self.title("Hotaru - v1.0.2")
+        self.title("Hotaru - v1.0.3")
         # self.geometry(f"{800}x{640}")
 
         self.geometry(f"{720}x{480}")
@@ -115,16 +115,6 @@ class App(customtkinter.CTk):
         self.progressbar_2 = customtkinter.CTkProgressBar(self.slider_progressbar_frame)
         self.progressbar_2.grid(row=2, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
         #endregion
-
-        # create scrollable frame
-        # self.scrollable_frame = customtkinter.CTkScrollableFrame(self, label_text="CTkScrollableFrame")
-        # self.scrollable_frame.grid(row=1, column=1, padx=(20, 0), pady=(20, 0), sticky="nsew")
-        # self.scrollable_frame.grid_columnconfigure(0, weight=1)
-        # self.scrollable_frame_switches = []
-        # for i in range(5):
-        #     switch = customtkinter.CTkSwitch(master=self.scrollable_frame, text=f"CTkSwitch {i}")
-        #     switch.grid(row=i, column=0, padx=10, pady=(0, 20))
-        #     self.scrollable_frame_switches.append(switch)
 
         # create checkbox and switch frame
 
