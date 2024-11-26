@@ -1,6 +1,6 @@
 import customtkinter
 from audio_manager import get_config_file, construct_audio_loop
-from component import Console, AudioPanel
+from component import Console, AudioPanel, SettingPanel
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -60,23 +60,10 @@ class App(customtkinter.CTk):
 
 
         #region 设置面板GUI
-        self.setting_frame = customtkinter.CTkFrame(self)
+        self.setting_frame = SettingPanel(self, auto_play_event=self._on_click_auto_play, turbo_event=self._on_click_turbo, 
+                                          count_down_event=self._on_click_count_down)
         self.setting_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
         self.setting_frame.grid(row=2, column=1, padx=(20, 20), pady=(10, 20), sticky="nsew")
-        # self.radio_var = tkinter.IntVar(value=0)
-        self.label_setting_group = customtkinter.CTkLabel(master=self.setting_frame, text="设置面板", font=FONT_TITLE)
-        self.label_setting_group.grid(row=0, column=0, padx=10, pady=5)
-
-        self.auto_play = customtkinter.CTkSwitch(master=self.setting_frame, text="点击下一个时自动播放", command=self._on_click_auto_play)
-        self.auto_play.grid(row=1, column=0, padx=20, pady=10)
-
-        self.turbo = customtkinter.CTkSwitch(master=self.setting_frame, text="挑战模式: 1.5倍速播放", command=self._on_click_turbo)
-        self.turbo.configure(state="disabled")
-        self.turbo.grid(row=2, column=0, padx=20, pady=10)
-
-        self.count_down = customtkinter.CTkSwitch(master=self.setting_frame, text="播放结束后五秒倒计时", command=self._on_click_count_down)
-        self.count_down.configure(state="disabled")
-        self.count_down.grid(row=3, column=0, padx=20, pady=10)
         #endregion
 
         #region 播放面板GUI
