@@ -97,16 +97,6 @@ class App(customtkinter.CTk):
         self.count_down.grid(row=3, column=0, padx=20, pady=10)
         #endregion
 
-
-        #region 进度条面板GUI
-        # self.slider_progressbar_frame = customtkinter.CTkFrame(self, fg_color="transparent")
-        # self.slider_progressbar_frame.grid(row=1, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
-        # self.slider_progressbar_frame.grid_columnconfigure(0, weight=1)
-        # self.slider_progressbar_frame.grid_rowconfigure(4, weight=1)
-        # self.progressbar_2 = customtkinter.CTkProgressBar(self.slider_progressbar_frame)
-        # self.progressbar_2.grid(row=2, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
-        #endregion
-
         #region 播放面板GUI
         self.controller_frame = customtkinter.CTkFrame(self)
         self.controller_frame.grid(row=2, column=0, padx=(20, 0), pady=(20, 20), sticky="nsew")
@@ -115,6 +105,9 @@ class App(customtkinter.CTk):
         self.controller_frame.grid_columnconfigure(2, weight=1)
         self.controller_frame.grid_columnconfigure(3, weight=1)
         self.controller_frame.grid_rowconfigure(2, weight=1)
+
+        self.count_down_bar = customtkinter.CTkProgressBar(self.controller_frame)
+        self.count_down_bar.grid(row=0, column=0, columnspan=4, padx=(40, 40), pady=(10, 10), sticky="ew")
 
 
         self.play_button = customtkinter.CTkButton(self.controller_frame, text="播放",
