@@ -109,7 +109,7 @@ class App(customtkinter.CTk):
         customtkinter.CTkLabel(self.controller_frame, text=" ").grid(row=0, column=0)
 
         self.count_down_bar = customtkinter.CTkProgressBar(self.controller_frame)
-        self.count_down_bar.grid(row=1, column=0, columnspan=4, padx=(40, 40), pady=(10, 10), sticky="ew")
+        self.count_down_bar.grid(row=1, column=1, columnspan=3,padx=(40, 40), pady=(10, 10), sticky="ew")
 
 
         self.play_button = customtkinter.CTkButton(self.controller_frame, text="播放",
