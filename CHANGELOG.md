@@ -1,11 +1,17 @@
 # Changelog of Hotaru
 
+## 1.1.1 (November 25, 2024)
+
 ## 1.0.4 (November 26, 2024)
+
+### Architecture
+
+- Modular Design Enabled
 
 ### GUI @ PC
 
-- Controller Panel in UI
-- Console function finalized
+- GUI developed by components
+- GUI components borderline complete
 
 ## 1.0.3 (November 24, 2024)
 
