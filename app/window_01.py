@@ -116,13 +116,6 @@ class App(customtkinter.CTk):
         self.progressbar_2.grid(row=2, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
         #endregion
 
-        # create checkbox and switch frame
-
-        # set default values
-        # self.scrollable_frame_switches[0].select()
-        # self.scrollable_frame_switches[4].select()
-        # self.optionmenu_1.set("CTkOptionmenu")
-        # self.textbox.insert("0.0", "")
 
     #region 初始化GUI相关
     def _init_audio_option_menu(self):
