@@ -1,6 +1,6 @@
 import customtkinter
 from audio_manager.utils import get_config_file, construct_audio_loop, _test_audio_loop
-from component.console import Console
+from component import Console
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
