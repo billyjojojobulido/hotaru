@@ -74,15 +74,6 @@ class App(customtkinter.CTk):
 
         self.space_holder_1 =  customtkinter.CTkLabel(self.audio_frame, text=" ")
         self.space_holder_1.grid(row=5, column=0, padx=20, pady=(10, 10))
-
-
-        self.play_button = customtkinter.CTkButton(self.audio_frame, text="播放",
-                                                           command=self._play)
-        self.play_button.grid(row=5, column=0, padx=20, pady=(10, 10))
-
-        self.next_button = customtkinter.CTkButton(self.audio_frame, text="下一个",
-                                                           command=self._next)
-        self.next_button.grid(row=6, column=0, padx=20, pady=(10, 5))
         #endregion
 
 
@@ -118,9 +109,21 @@ class App(customtkinter.CTk):
 
         #region 播放面板GUI
         self.controller_frame = customtkinter.CTkFrame(self)
-        self.controller_frame.grid(row=2, column=0, padx=(20, 20), pady=(20, 20), sticky="nsew")
-        self.controller_frame.grid_columnconfigure(4, weight=1)
-        self.controller_frame.grid_rowconfigure(4, weight=1)
+        self.controller_frame.grid(row=2, column=0, padx=(20, 0), pady=(20, 20), sticky="nsew")
+        self.controller_frame.grid_columnconfigure(0, weight=1)
+        self.controller_frame.grid_columnconfigure(1, weight=1)
+        self.controller_frame.grid_columnconfigure(2, weight=1)
+        self.controller_frame.grid_columnconfigure(3, weight=1)
+        self.controller_frame.grid_rowconfigure(2, weight=1)
+
+
+        self.play_button = customtkinter.CTkButton(self.controller_frame, text="播放",
+                                                           command=self._play)
+        self.play_button.grid(row=1, column=1, padx=(20, 10),pady=(10, 10))
+
+        self.next_button = customtkinter.CTkButton(self.controller_frame, text="下一个",
+                                                           command=self._next)
+        self.next_button.grid(row=1, column=2, padx=(10, 20), pady=(10, 10))
         #endregion
 
 
