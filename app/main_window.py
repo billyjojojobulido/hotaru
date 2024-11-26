@@ -1,5 +1,5 @@
 import customtkinter
-from audio_manager.utils import get_config_file, construct_audio_loop, _test_audio_loop
+from audio_manager import get_config_file, construct_audio_loop
 from component import Console
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
@@ -140,7 +140,6 @@ class App(customtkinter.CTk):
         audio_id_str = self.combobox_1.get()
         try:
             id = int(audio_id_str[:5])
-            _test_audio_loop(id)
             audio_loop = construct_audio_loop(id)
             if not audio_loop.next().is_valid() :
                 self.textbox.console_log_error("该机经音频不存在")
