@@ -192,12 +192,5 @@ class App(customtkinter.CTk):
 
     #endregion
 
-    # @deprecated
-    @DeprecationWarning
-    def open_input_dialog_event(self):
-        dialog = customtkinter.CTkInputDialog(text="Type in a number:", title="CTkInputDialog")
-        print("CTkInputDialog:", dialog.get_input())
-
-
     def run(self):
         self.mainloop()
