@@ -47,13 +47,13 @@ class App(customtkinter.CTk):
 
         #region 显示器部分GUI
         self.textbox = Console(self)
-        self.textbox.grid(row=0, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
+        self.textbox.grid(row=0, column=0, rowspan=2, padx=(20, 10), pady=(20, 10), sticky="nsew")
         #endregion
 
 
         #region 选择音频菜单GUI
         self.audio_frame = customtkinter.CTkFrame(self)
-        self.audio_frame.grid(row=0, column=1, rowspan=2, padx=(20, 20), pady=(20, 10), sticky="nsew")
+        self.audio_frame.grid(row=0, column=1, rowspan=2, padx=(20, 10), pady=(20, 10), sticky="nsew")
         self.audio_frame.grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
 
         self.label_audio_group = customtkinter.CTkLabel(master=self.audio_frame, text="音频控制台", font=FONT_TITLE)
@@ -109,7 +109,7 @@ class App(customtkinter.CTk):
 
         #region 播放面板GUI
         self.controller_frame = customtkinter.CTkFrame(self)
-        self.controller_frame.grid(row=1, column=0, padx=(20, 0), pady=(20, 20), sticky="nsew")
+        self.controller_frame.grid(row=2, column=0, padx=(20, 0), pady=(20, 20), sticky="nsew")
         self.controller_frame.grid_columnconfigure(0, weight=1)
         self.controller_frame.grid_columnconfigure(1, weight=1)
         self.controller_frame.grid_columnconfigure(2, weight=1)
