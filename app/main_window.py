@@ -6,7 +6,7 @@ customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
 
 FONT_TITLE = ("Helvetica", 16, "bold")
-VERSION ="Hotaru - v1.0.4"
+VERSION ="Hotaru - v1.1.1"
 
 class App(customtkinter.CTk):
     def __init__(self):
