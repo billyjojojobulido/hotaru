@@ -99,15 +99,14 @@ class App(customtkinter.CTk):
 
         #region 播放面板GUI
         self.controller_frame = customtkinter.CTkFrame(self)
-        self.controller_frame.grid(row=2, column=0, padx=(20, 0), pady=(10, 20), sticky="nsew")
+        self.controller_frame.grid(row=2, column=0, padx=(20, 10), pady=(10, 20), sticky="nsew")
         self.controller_frame.grid_columnconfigure(0, weight=1)
         self.controller_frame.grid_columnconfigure(1, weight=1)
         self.controller_frame.grid_columnconfigure(2, weight=1)
         self.controller_frame.grid_columnconfigure(3, weight=1)
         self.controller_frame.grid_rowconfigure(2, weight=1)
         
-        # self.count_down_label = customtkinter.CTkLabel(self.controller_frame, text="请在五秒内开始翻译...")
-        # self.count_down_label.grid(row=0, column=0, padx=(40, 0))
+        customtkinter.CTkLabel(self.controller_frame, text=" ").grid(row=0, column=0)
 
         self.count_down_bar = customtkinter.CTkProgressBar(self.controller_frame)
         self.count_down_bar.grid(row=1, column=0, columnspan=4, padx=(40, 40), pady=(10, 10), sticky="ew")
