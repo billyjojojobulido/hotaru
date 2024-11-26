@@ -118,9 +118,10 @@ class App(customtkinter.CTk):
 
         #region 播放面板GUI
         self.controller_frame = customtkinter.CTkFrame(self)
-        self.controller_frame.grid(row=2, column=0, padx=(20, 0), pady=(20, 20), sticky="nsew")
-        self.controller_frame.grid_columnconfigure(0, weight=1)
+        self.controller_frame.grid(row=2, column=0, padx=(20, 20), pady=(20, 20), sticky="nsew")
+        self.controller_frame.grid_columnconfigure(4, weight=1)
         self.controller_frame.grid_rowconfigure(4, weight=1)
+        #endregion
 
 
     #region 初始化GUI相关
