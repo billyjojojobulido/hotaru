@@ -1,5 +1,12 @@
 # Changelog of Hotaru
 
+## 1.0.4 (November 26, 2024)
+
+### GUI @ PC
+
+- Controller Panel in UI
+- Console function finalized
+
 ## 1.0.3 (November 24, 2024)
 
 ### GUI @ PC
