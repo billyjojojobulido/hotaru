@@ -68,6 +68,7 @@ class App(customtkinter.CTk):
 
         #region 播放面板GUI
         self.controller_frame = ControllerPanel(self, play_event=self._play, next_event=self._next)
+        self.controller_frame.grid(row=2, column=0, padx=(20, 10), pady=(10, 20), sticky="nsew")
         #endregion
 
 
