@@ -92,9 +92,9 @@ class App(customtkinter.CTk):
         self.turbo.configure(state="disabled")
         self.turbo.grid(row=2, column=0, padx=20, pady=10)
 
-        # self.count_down = customtkinter.CTkSwitch(master=self.setting_frame, text="播放结束后五秒倒计时", command=self._on_click_count_down)
-        # self.count_down.configure(state="disabled")
-        # self.count_down.grid(row=3, column=0, padx=20, pady=10)
+        self.count_down = customtkinter.CTkSwitch(master=self.setting_frame, text="播放结束后五秒倒计时", command=self._on_click_count_down)
+        self.count_down.configure(state="disabled")
+        self.count_down.grid(row=3, column=0, padx=20, pady=10)
         #endregion
 
 
