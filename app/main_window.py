@@ -6,6 +6,7 @@ customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
 
 FONT_TITLE = ("Helvetica", 16, "bold")
+VERSION ="Hotaru - v1.0.4"
 
 class App(customtkinter.CTk):
     def __init__(self):
@@ -22,7 +23,7 @@ class App(customtkinter.CTk):
         #region UI部分 ###
         ################
         # configure window
-        self.title("Hotaru - v1.0.3")
+        self.title(VERSION)
         # self.geometry(f"{800}x{640}")
 
         self.geometry(f"{720}x{480}")
