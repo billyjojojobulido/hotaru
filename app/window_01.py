@@ -22,7 +22,7 @@ class App(customtkinter.CTk):
         #region UI部分 ###
         ################
         # configure window
-        self.title("Hotaru - v1.0.2")
+        self.title("Hotaru - v1.0.3")
         # self.geometry(f"{800}x{640}")
 
         self.geometry(f"{720}x{480}")
@@ -47,7 +47,7 @@ class App(customtkinter.CTk):
 
         #region 显示器部分GUI
         self.textbox = Console(self)
-        self.textbox.grid(row=0, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
+        self.textbox.grid(row=0, column=0, rowspan=2, padx=(20, 10), pady=(20, 10), sticky="nsew")
         #endregion
 
 
@@ -74,15 +74,6 @@ class App(customtkinter.CTk):
 
         self.space_holder_1 =  customtkinter.CTkLabel(self.audio_frame, text=" ")
         self.space_holder_1.grid(row=5, column=0, padx=20, pady=(10, 10))
-
-
-        self.play_button = customtkinter.CTkButton(self.audio_frame, text="播放",
-                                                           command=self._play)
-        self.play_button.grid(row=5, column=0, padx=20, pady=(10, 10))
-
-        self.next_button = customtkinter.CTkButton(self.audio_frame, text="下一个",
-                                                           command=self._next)
-        self.next_button.grid(row=6, column=0, padx=20, pady=(10, 5))
         #endregion
 
 
@@ -101,38 +92,35 @@ class App(customtkinter.CTk):
         self.turbo.configure(state="disabled")
         self.turbo.grid(row=2, column=0, padx=20, pady=10)
 
-        # self.count_down = customtkinter.CTkSwitch(master=self.setting_frame, text="播放结束后五秒倒计时", command=self._on_click_count_down)
-        # self.count_down.configure(state="disabled")
-        # self.count_down.grid(row=3, column=0, padx=20, pady=10)
+        self.count_down = customtkinter.CTkSwitch(master=self.setting_frame, text="播放结束后五秒倒计时", command=self._on_click_count_down)
+        self.count_down.configure(state="disabled")
+        self.count_down.grid(row=3, column=0, padx=20, pady=10)
         #endregion
 
+        #region 播放面板GUI
+        self.controller_frame = customtkinter.CTkFrame(self)
+        self.controller_frame.grid(row=2, column=0, padx=(20, 10), pady=(10, 20), sticky="nsew")
+        self.controller_frame.grid_columnconfigure(0, weight=1)
+        self.controller_frame.grid_columnconfigure(1, weight=1)
+        self.controller_frame.grid_columnconfigure(2, weight=1)
+        self.controller_frame.grid_columnconfigure(3, weight=1)
+        self.controller_frame.grid_rowconfigure(2, weight=1)
+        
+        customtkinter.CTkLabel(self.controller_frame, text=" ").grid(row=0, column=0)
 
-        #region 进度条面板GUI
-        self.slider_progressbar_frame = customtkinter.CTkFrame(self, fg_color="transparent")
-        self.slider_progressbar_frame.grid(row=1, column=0, padx=(20, 0), pady=(20, 0), sticky="nsew")
-        self.slider_progressbar_frame.grid_columnconfigure(0, weight=1)
-        self.slider_progressbar_frame.grid_rowconfigure(4, weight=1)
-        self.progressbar_2 = customtkinter.CTkProgressBar(self.slider_progressbar_frame)
-        self.progressbar_2.grid(row=2, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
+        self.count_down_bar = customtkinter.CTkProgressBar(self.controller_frame)
+        self.count_down_bar.grid(row=1, column=1, columnspan=3,padx=(40, 40), pady=(10, 10), sticky="ew")
+
+
+        self.play_button = customtkinter.CTkButton(self.controller_frame, text="播放",
+                                                           command=self._play)
+        self.play_button.grid(row=2, column=1, padx=(20, 10),pady=(10, 10))
+
+        self.next_button = customtkinter.CTkButton(self.controller_frame, text="下一个",
+                                                           command=self._next)
+        self.next_button.grid(row=2, column=2, padx=(10, 20), pady=(10, 10))
         #endregion
 
-        # create scrollable frame
-        # self.scrollable_frame = customtkinter.CTkScrollableFrame(self, label_text="CTkScrollableFrame")
-        # self.scrollable_frame.grid(row=1, column=1, padx=(20, 0), pady=(20, 0), sticky="nsew")
-        # self.scrollable_frame.grid_columnconfigure(0, weight=1)
-        # self.scrollable_frame_switches = []
-        # for i in range(5):
-        #     switch = customtkinter.CTkSwitch(master=self.scrollable_frame, text=f"CTkSwitch {i}")
-        #     switch.grid(row=i, column=0, padx=10, pady=(0, 20))
-        #     self.scrollable_frame_switches.append(switch)
-
-        # create checkbox and switch frame
-
-        # set default values
-        # self.scrollable_frame_switches[0].select()
-        # self.scrollable_frame_switches[4].select()
-        # self.optionmenu_1.set("CTkOptionmenu")
-        # self.textbox.insert("0.0", "")
 
     #region 初始化GUI相关
     def _init_audio_option_menu(self):
@@ -208,13 +196,6 @@ class App(customtkinter.CTk):
             self.textbox.console_log("当前对话: Dialogue: {}".format(sec_id))
 
     #endregion
-
-    # @deprecated
-    @DeprecationWarning
-    def open_input_dialog_event(self):
-        dialog = customtkinter.CTkInputDialog(text="Type in a number:", title="CTkInputDialog")
-        print("CTkInputDialog:", dialog.get_input())
-
 
     def run(self):
         self.mainloop()
