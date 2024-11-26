@@ -1,5 +1,4 @@
 import customtkinter
-from audio_manager import get_config_file
 
 FONT_TITLE = ("Helvetica", 16, "bold")
 
