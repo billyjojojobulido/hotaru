@@ -5,6 +5,7 @@
   <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg">
   <img src="https://img.shields.io/badge/PRs-welcome-orange.svg">
   <img src="https://img.shields.io/badge/Dev-In_Progerss-lightgreen.svg">
+  <img src="https://img.shields.io/badge/MVP-V1.1.1-purple.svg">
 </p>
 
 ## Project Status
